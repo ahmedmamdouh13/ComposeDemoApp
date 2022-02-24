@@ -1,38 +1,33 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ReactionModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ReactionType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ReactionsBarModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
 
 @Composable
-fun Reaction(model: ReactionModel, onClick: (ReactionType) -> Unit) {
+private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
     val icon = getIcon(model.type)
 
     Row(modifier = Modifier
         .wrapContentSize()
         .padding(2.dp)
         .clip(RoundedCornerShape(4.dp))
-        .clickable(role = Role.Button) { onClick(model.type) }
+        .clickable(role = Role.Button) { onClick(model) }
     ) {
 
         Text(
@@ -52,14 +47,6 @@ fun Reaction(model: ReactionModel, onClick: (ReactionType) -> Unit) {
 
 }
 
-@Composable
-fun ReactionsBar(model: ReactionsBarModel) {
-
-    Reaction(model = model.likes, onClick = {
-        println(it.name)
-    })
-
-}
 
 private fun getIcon(type: ReactionType): Int = when (type) {
     ReactionType.LIKE -> R.drawable.ic_like
@@ -68,14 +55,42 @@ private fun getIcon(type: ReactionType): Int = when (type) {
 }
 
 
+@Composable
+fun ReactionsBar(reactions: List<ReactionModel>, onReactionClicked: (ReactionModel) -> Unit) {
+    val like = reactions.find { it.type == ReactionType.LIKE }!!
+    val comment = reactions.find { it.type == ReactionType.COMMENT }!!
+    val share = reactions.find { it.type == ReactionType.SHARE }!!
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(30.dp)
+    ) {
+
+        Box(contentAlignment = Alignment.CenterStart, modifier = Modifier.fillMaxWidth()) {
+            Reaction(model = like, onReactionClicked::invoke)
+        }
+
+        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+            Reaction(model = comment, onReactionClicked::invoke)
+        }
+
+        Box(contentAlignment = Alignment.CenterEnd, modifier = Modifier.fillMaxWidth()) {
+            Reaction(model = share, onReactionClicked::invoke)
+        }
+
+    }
+
+}
+
 //preview......
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun previewReaction() {
     val displayableCount = (80000L).toDisplayableCount()
     val type = ReactionType.COMMENT
-    Reaction(ReactionModel(displayableCount, type)){
-        println(it.name + " here!!!")
+    Reaction(ReactionModel(0, displayableCount, type)) {
+        println(it.type.name + " here!!!")
     }
 
 }
