@@ -5,7 +5,7 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
 
 @Composable
 fun Home(){
-val mil : Long = 100000
+val mil : Long = 10900400000
 val k : Long = 100
 val mila : Long = 99999
 val ka : Long = 9954
