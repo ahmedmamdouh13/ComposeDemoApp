@@ -4,7 +4,13 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
+import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.res.colorResource
+import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -27,6 +33,25 @@ private val LightColorPalette = lightColors(
     */
 )
 
+private object RippleCustomTheme: RippleTheme {
+
+    //Your custom implementation...
+    @Composable
+    override fun defaultColor() =
+        RippleTheme.defaultRippleColor(
+            colorResource(id = R.color.indigo_gradient),
+            lightTheme = true
+        )
+
+    @Composable
+    override fun rippleAlpha(): RippleAlpha =
+        RippleTheme.defaultRippleAlpha(
+            colorResource(id = R.color.indigo_gradient),
+            lightTheme = true
+        )
+}
+
+
 @Composable
 fun QurbaComposeDemoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -38,10 +63,15 @@ fun QurbaComposeDemoTheme(
         LightColorPalette
     }
 
-    MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+        MaterialTheme(
+            colors = colors,
+            typography = Typography,
+            shapes = Shapes,
+            content = {
+                CompositionLocalProvider(LocalRippleTheme provides RippleCustomTheme) {
+                    content()
+                }
+            }
+        )
+
 }

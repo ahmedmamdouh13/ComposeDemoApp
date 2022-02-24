@@ -1,16 +1,17 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui
 
 import androidx.compose.runtime.Composable
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ReactionModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.Reaction
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
 
 @Composable
 fun Home(){
-val mil : Long = 10900400000
-val k : Long = 100
-val mila : Long = 99999
-val ka : Long = 9954
-    println(mil.toDisplayableCount())
-    println(mila.toDisplayableCount())
-    println(k.toDisplayableCount())
-    println(ka.toDisplayableCount())
+    val displayableCount = (80000L).toDisplayableCount()
+    val type = ReactionType.COMMENT
+    Reaction(ReactionModel(displayableCount, type)){
+        println(it.name + " here!!!")
+    }
+
 }
