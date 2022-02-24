@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="indigo_gradient">#4E60EB</color>
+    <color name="fuchsia_gradient">#C13BD8</color>
+
+    <color name="indigo_gradient_A90">#E64E60EB</color>
+    <color name="fuchsia_gradient_A90">#E6C13BD8</color>
+
+    <color name="indigo_gradient_A36">#5B4E60EB</color>
+    <color name="fuchsia_gradient_A36">#5CC13BD8</color>
+
+</resources>
