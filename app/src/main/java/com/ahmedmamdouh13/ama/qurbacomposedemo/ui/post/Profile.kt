@@ -9,12 +9,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.arrow
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.blueTick
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.PostProfileModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.ProfileType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.SharedWith
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.restaurant
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Typography
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableDateTime
 
@@ -34,12 +38,15 @@ fun PostProfile(model: PostProfileModel) {
                 .align(Alignment.CenterVertically)
         ) {
 
-            Header(isVerified = model.isVerified, model.userName, isSharing)
+            ProfileHeader(isVerified = model.isVerified, model.userName, isSharing)
 
             Spacer(modifier = Modifier.padding(top = 1.dp))
 
             if (isSharing)
-                Header(isVerified = model.sharedWith!!.isVerified, userName = model.sharedWith!!.sharedWithName)
+                ProfileHeader(
+                    isVerified = model.sharedWith!!.isVerified,
+                    userName = model.sharedWith!!.sharedWithName,
+                )
 
             Spacer(modifier = Modifier.padding(top = 1.dp))
 
@@ -53,13 +60,20 @@ fun PostProfile(model: PostProfileModel) {
 }
 
 @Composable
-private fun Header(
-    isVerified: Boolean,
+fun ProfileHeader(
+    isVerified: Boolean = false,
     userName: String,
-    isSharing: Boolean = false
+    isSharing: Boolean = false,
+    isVendor: Boolean = false,
 ) {
     Row {
-        Text(text = userName, style = Typography.h1)
+        Text(
+            text = userName,
+            style = Typography.h1,
+            maxLines = 1,
+            softWrap = false,
+            overflow = TextOverflow.Ellipsis
+        )
 
         if (isVerified)
             Image(
@@ -67,7 +81,18 @@ private fun Header(
                     .size(15.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = R.drawable.ic_verified_tick),
+                painter = painterResource(id = blueTick),
+                contentDescription = "Verified",
+                alignment = Alignment.Center,
+            )
+
+        if (isVendor)
+            Image(
+                modifier = Modifier
+                    .size(15.dp)
+                    .padding(start = 4.dp)
+                    .align(Alignment.CenterVertically),
+                painter = painterResource(id = restaurant),
                 contentDescription = "Verified",
                 alignment = Alignment.Center,
             )
@@ -78,7 +103,7 @@ private fun Header(
                     .size(15.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = R.drawable.ic_keyboard_arrow_right),
+                painter = painterResource(id = arrow),
                 contentDescription = "Arrow",
                 alignment = Alignment.Center,
             )
@@ -89,7 +114,7 @@ private fun Header(
 
 
 @Composable
-private fun ProfilePicture(profilePicRes: Int) {
+fun ProfilePicture(profilePicRes: Int) {
     Image(
         modifier = Modifier
             .size(40.dp)

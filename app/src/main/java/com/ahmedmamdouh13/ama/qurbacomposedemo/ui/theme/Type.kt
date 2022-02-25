@@ -26,6 +26,12 @@ val Typography = Typography(
         fontFamily = FontFamily(Font(R.font.montserrat_regular)),
         fontWeight = FontWeight.Bold,
         fontSize = 12.sp,
+        color = FontColorSubtitleGrayOpacity50
+    )
+    ,subtitle2 = TextStyle(
+        fontFamily = FontFamily(Font(R.font.montserrat_regular)),
+        fontWeight = FontWeight.Bold,
+        fontSize = 12.sp,
         color = FontColorSubtitleGray
     )
     /* Other default text styles to override
