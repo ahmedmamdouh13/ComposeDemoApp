@@ -84,7 +84,8 @@ fun ActionButton(model: PromoModel, onClick: (PromoModel) -> Unit) {
     )
 
 
-    TextButton(onClick = { onClick(model) },
+    TextButton(
+        onClick = { onClick(model) },
         modifier = Modifier
             .background(brush, RoundedCornerShape(20.dp))
             .clip(RoundedCornerShape(20.dp))
@@ -93,7 +94,11 @@ fun ActionButton(model: PromoModel, onClick: (PromoModel) -> Unit) {
 
     ) {
 
-        Text(text = model.actionButtonText, color = PromoActionButtonTextColor, style = Typography.body1)
+        Text(
+            text = model.actionButtonText,
+            color = PromoActionButtonTextColor,
+            style = Typography.body1
+        )
 
 
     }

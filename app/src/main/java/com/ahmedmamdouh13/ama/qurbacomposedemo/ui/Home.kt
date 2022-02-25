@@ -1,6 +1,11 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui
 
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ContentType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostContent
@@ -42,7 +47,10 @@ fun Home() {
 //            true
 //        )
 //    )
-
+Column(modifier = Modifier
+    .wrapContentHeight()
+    .fillMaxWidth()
+){
     PostItem(
         model = PostModel(
             profileModel = PostProfileModel(
@@ -51,9 +59,8 @@ fun Home() {
                 "Ahmed Mamdouh",
                 R.drawable.pp,
                 1645730335701L,
-                ProfileType.BUYER,
-                SharedWith(0, 0, "Mohamed Mady", ProfileType.BUYER, false),
-                true
+                ProfileType.VENDOR,
+                isVerified = false
             ),
             content = listOf(
                 PostContent(
@@ -80,5 +87,11 @@ fun Home() {
             )
         )
     )
+    }
+}
 
+@Preview(showSystemUi = true, showBackground = true)
+@Composable
+fun  PreviewHome(){
+    Home()
 }

@@ -12,6 +12,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.menu
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ContentType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
@@ -20,21 +21,40 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
 @Composable
 fun PostItem(model: PostModel) {
     Column {
-
         Box(
             Modifier
-                .wrapContentSize()
+                .wrapContentHeight()
+                .fillMaxWidth()
                 .align(Alignment.Start)
                 .padding(
                     start = dimensionResource(id = R.dimen.padding_16),
                     end = dimensionResource(id = R.dimen.padding_16)
                 )
         ) {
-            PostProfile(model = model.profileModel)
+            Box(
+                Modifier
+                    .wrapContentSize()
+                    .align(Alignment.TopStart)
+
+            ) {
+                PostProfile(model = model.profileModel)
+            }
+
+            Box(
+                Modifier
+                    .wrapContentSize()
+                    .align(Alignment.TopEnd)
+
+            ) {
+              Menu()
+            }
+
+
         }
 
 
-        PostContent(model,)
+
+        PostContent(model)
 
 
         Box(
@@ -58,6 +78,15 @@ fun PostItem(model: PostModel) {
 }
 
 @Composable
+fun Menu() {
+    Image(
+        painterResource(id = menu),
+        contentDescription = "menu",
+        modifier = Modifier.size(20.dp)
+    )
+}
+
+@Composable
 fun PostContent(model: PostModel, onPromoActionClick: (PromoModel) -> Unit = {}) {
 
     Column {
@@ -74,7 +103,7 @@ fun PostContent(model: PostModel, onPromoActionClick: (PromoModel) -> Unit = {})
                 }
                 ContentType.IMAGE -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
-                    Box(modifier = Modifier.height(300.dp)) { ContentImages(content.images) }
+                    Box { ContentImages(content.images) }
                 }
                 ContentType.SHARED_POST -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
@@ -82,7 +111,7 @@ fun PostContent(model: PostModel, onPromoActionClick: (PromoModel) -> Unit = {})
                 }
                 ContentType.PROMO -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
-                    Promo(content.promo!!,onClickActionButton = onPromoActionClick)
+                    Promo(content.promo!!, onClickActionButton = onPromoActionClick)
                 }
             }
         }
@@ -95,31 +124,34 @@ fun SharedPost(sharedPost: PostModel?) {
 
 }
 
+const val defaultImageContentHeight = 192
+const val paddingSize = 4
+
 @Composable
 fun ContentImages(images: List<Int>) { // TODO fix naming and organize code
     val displayMetrics = Resources.getSystem().displayMetrics
     var minImageWidthSize = (displayMetrics.widthPixels / displayMetrics.density) / 2
-    val height = if (images.size > 1) (300 / (images.size - 1)) else {
+    var height = defaultImageContentHeight
 
-        minImageWidthSize = (displayMetrics.widthPixels / displayMetrics.density)
-        300
-    }
+    if (images.size > 1) height = calculateGridItemsHeight(images.size, paddingSize)
+    else minImageWidthSize = (displayMetrics.widthPixels / displayMetrics.density)
+
 
     Row {
         Image(
             modifier = Modifier
                 .width(minImageWidthSize.dp)
-                .fillMaxHeight(),
+                .height(defaultImageContentHeight.dp),
             painter = painterResource(id = images[0]),
             contentDescription = "",
             contentScale = ContentScale.Crop
 
         )
-        Spacer(modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_4)))
+        Spacer(modifier = Modifier.padding(start = paddingSize.dp))
         Column {
             for (i in 1 until images.size) {
                 if (i != 1)
-                    Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_4)))
+                    Spacer(modifier = Modifier.padding(top = paddingSize.dp))
                 Image(
                     modifier = Modifier
                         .height(height.dp)
@@ -134,4 +166,8 @@ fun ContentImages(images: List<Int>) { // TODO fix naming and organize code
     }
 
 
+}
+
+fun calculateGridItemsHeight(itemCount: Int, paddingSize: Int): Int {
+    return ((defaultImageContentHeight - ((itemCount - 2) * paddingSize)) / (itemCount - 1))
 }

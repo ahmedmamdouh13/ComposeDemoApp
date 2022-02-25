@@ -38,7 +38,12 @@ fun PostProfile(model: PostProfileModel) {
                 .align(Alignment.CenterVertically)
         ) {
 
-            ProfileHeader(isVerified = model.isVerified, model.userName, isSharing)
+            ProfileHeader(
+                isVerified = model.isVerified,
+                model.userName,
+                isSharing,
+                model.profileType == ProfileType.VENDOR
+            )
 
             Spacer(modifier = Modifier.padding(top = 1.dp))
 
@@ -89,11 +94,11 @@ fun ProfileHeader(
         if (isVendor)
             Image(
                 modifier = Modifier
-                    .size(15.dp)
+                    .size(18.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
                 painter = painterResource(id = restaurant),
-                contentDescription = "Verified",
+                contentDescription = "Vendor",
                 alignment = Alignment.Center,
             )
 
