@@ -46,10 +46,13 @@ fun PostItem(
 
         PostContent(model, onPromoActionClick, startEndPadding) // Post Content
 
-        Spacer(modifier = Modifier.padding(top = topPadding))
 
-        PostPadding(startEndPadding = startEndPadding) {
-            PostDivider()
+
+        if (isDividerNeeded(model)) {
+            Spacer(modifier = Modifier.padding(top = topPadding))
+            PostPadding(startEndPadding = startEndPadding) {
+                PostDivider()
+            }
         }
 
         Spacer(modifier = Modifier.padding(top = topPadding))
@@ -64,6 +67,10 @@ fun PostItem(
 
     }
 
+}
+
+private fun isDividerNeeded(model: PostModel): Boolean {
+    return model.content.find { it.promo != null } != null
 }
 
 @Composable

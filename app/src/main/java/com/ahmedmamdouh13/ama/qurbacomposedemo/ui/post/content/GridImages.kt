@@ -16,7 +16,7 @@ private val displayMetrics = Resources.getSystem().displayMetrics
 val defaultImageContentWidth = (displayMetrics.widthPixels / displayMetrics.density) / 2
 
 @Composable
-fun GridContentImages(images: List<Int>) { // TODO fix naming and organize code
+fun GridContentImages(images: List<Int>) {
     var minImageWidthSize = defaultImageContentWidth
     var height = defaultImageContentHeight
 

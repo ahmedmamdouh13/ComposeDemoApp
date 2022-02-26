@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +15,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.DataSource
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ContentType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostContent
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostModel
@@ -26,6 +28,9 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionTy
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostItem
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PostDividerColorOffWhite50
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.sample
 
 @Composable
 fun Home() {
@@ -148,12 +153,13 @@ fun Home() {
             .fillMaxWidth()
     ) {
 
-        items(10) {
+
+        itemsIndexed(DataSource.getAllPosts()) { index, item ->
 
             Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
 
             PostItem(
-                model = sharedPost,
+                model = item,
                 onReactionClicked = {
 
                     if (it.type == ReactionType.LIKE) {

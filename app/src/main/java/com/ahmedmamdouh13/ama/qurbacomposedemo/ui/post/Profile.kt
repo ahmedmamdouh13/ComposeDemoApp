@@ -82,7 +82,7 @@ fun ProfileHeader(
             overflow = TextOverflow.Ellipsis
         )
 
-        if (isVerified)
+        if (isVerified && !isVendor)
             Image(
                 modifier = Modifier
                     .size(15.dp)
@@ -93,7 +93,7 @@ fun ProfileHeader(
                 alignment = Alignment.Center,
             )
 
-        if (isVendor)
+        if (isVendor && isVerified)
             Image(
                 modifier = Modifier
                     .size(18.dp)
