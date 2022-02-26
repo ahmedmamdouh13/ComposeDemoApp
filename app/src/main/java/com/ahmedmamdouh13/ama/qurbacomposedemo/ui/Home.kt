@@ -96,12 +96,13 @@ fun Home() {
             "Mohamed Mady",
             R.drawable.pp,
             timestamp = 1645730335001L,
-            commentText = "Nice food really!"
+            commentText = "Nice food really!",
+            likesCount = remember{ mutableStateOf(999L) }
         ),
         listOf(
-            ReactionModel(1, remember { mutableStateOf(displayableCount) }, type),
-            ReactionModel(1, remember { mutableStateOf(displayableCount) }, ReactionType.LIKE),
-            ReactionModel(1, remember { mutableStateOf(displayableCount) }, ReactionType.SHARE)
+            ReactionModel(1, remember { mutableStateOf(30) }, type),
+            ReactionModel(1, remember { mutableStateOf(999) }, ReactionType.LIKE),
+            ReactionModel(1, remember { mutableStateOf(0L) }, ReactionType.SHARE)
         )
     )
     val model = PostModel(
@@ -136,9 +137,9 @@ fun Home() {
             commentText = "Nice food really!"
         ),
         listOf(
-            ReactionModel(1, remember { mutableStateOf(displayableCount) }, type),
-            ReactionModel(1, remember { mutableStateOf(displayableCount) }, ReactionType.LIKE),
-            ReactionModel(1, remember { mutableStateOf(displayableCount) }, ReactionType.SHARE)
+            ReactionModel(1, remember { mutableStateOf(13L) }, type),
+            ReactionModel(1, remember { mutableStateOf(50) }, ReactionType.LIKE),
+            ReactionModel(1, remember { mutableStateOf(0L) }, ReactionType.SHARE)
         )
     )
     LazyColumn(
@@ -156,6 +157,11 @@ fun Home() {
                 onReactionClicked = {
 
                     if (it.type == ReactionType.LIKE) {
+
+                        if (!it.isLiked.value)
+                            it.count.value = it.count.value + 1
+                        else  it.count.value = it.count.value - 1
+
                         it.isLiked.value = !it.isLiked.value
                     }
 

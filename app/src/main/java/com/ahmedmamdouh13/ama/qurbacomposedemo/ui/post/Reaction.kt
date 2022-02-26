@@ -38,7 +38,7 @@ private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
     ) {
 
         Text(
-            text = model.displayableCount.value, textAlign = TextAlign.Center,
+            text = model.count.value.toDisplayableCount(), textAlign = TextAlign.Center,
             modifier = Modifier.align(Alignment.CenterVertically)
         )
 
@@ -103,9 +103,9 @@ fun ReactionsBar(reactions: List<ReactionModel>, onReactionClicked: (ReactionMod
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun previewReaction() {
-    val displayableCount = (80000L).toDisplayableCount()
+    val displayableCount = (800L).toDisplayableCount()
     val type = ReactionType.COMMENT
-    Reaction(ReactionModel(0, remember { mutableStateOf(displayableCount) }, type)) {
+    Reaction(ReactionModel(0, remember { mutableStateOf(800L) }, type)) {
         println(it.type.name + " here!!!")
     }
 

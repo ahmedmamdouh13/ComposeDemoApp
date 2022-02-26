@@ -1,9 +1,8 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post
+package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
@@ -17,7 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.BorderColorBlack
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.ProfileHeader
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.ProfilePicture
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Typography
 
@@ -51,7 +51,6 @@ fun Promo(model: PromoModel, onClickActionButton: (PromoModel) -> Unit) {
                     text = model.vendorPromoSubtitle,
                     style = Typography.subtitle2
                 )
-
 
             }
 
