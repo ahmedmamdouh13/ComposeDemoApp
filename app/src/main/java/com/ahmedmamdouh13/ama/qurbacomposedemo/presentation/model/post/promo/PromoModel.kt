@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo
+package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo
 
 data class PromoModel(
     val postId: Long,

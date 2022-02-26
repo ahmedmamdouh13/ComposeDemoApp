@@ -9,7 +9,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostContent
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostPadding
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostProfile

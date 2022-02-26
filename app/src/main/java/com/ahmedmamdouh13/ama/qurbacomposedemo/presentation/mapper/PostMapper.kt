@@ -3,16 +3,16 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.mapper
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.*
-import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.PostStates
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ContentType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostContent
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.comment.CommentModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.PostProfileModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.ProfileType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostStates
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.ContentType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.PostContent
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.PostProfileModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.ProfileType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.Count
 
 //Content type

@@ -1,34 +1,15 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.data.local
 
 import android.content.Context
-import androidx.compose.runtime.mutableStateOf
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.data.*
 import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.Posts
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ContentType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostContent
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.comment.CommentModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.PostProfileModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.profile.ProfileType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionType
 import com.google.gson.Gson
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
-object DataSource {
-    suspend fun getAllPosts(context: Context): Flow<Posts> {
+object LocalDataSource {
+    suspend fun getAllPosts(context: Context): Posts {
         val json = context.resources.openRawResource(R.raw.api).bufferedReader().use { it.readText() }
-
-        val value = Gson().fromJson(json, Posts::class.java)
-
-        return flow {
-            emit(value)
-            emit(value)
-            emit(value)
-        }
+        return Gson().fromJson(json, Posts::class.java)
+    }
     }
 //
 //    private fun getPost1(): PostModel {
@@ -189,4 +170,3 @@ object DataSource {
 //            )
 //        )
 //    }
-}

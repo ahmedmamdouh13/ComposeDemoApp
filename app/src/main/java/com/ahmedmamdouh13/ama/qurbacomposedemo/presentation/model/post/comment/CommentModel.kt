@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.comment
+package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

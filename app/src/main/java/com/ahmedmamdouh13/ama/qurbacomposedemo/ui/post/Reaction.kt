@@ -20,8 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.comment
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.like
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.share
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount

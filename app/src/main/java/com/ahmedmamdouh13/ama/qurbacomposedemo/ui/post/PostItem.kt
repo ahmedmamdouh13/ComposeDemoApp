@@ -14,12 +14,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.menu
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.ContentType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.PostModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.comment.CommentModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.ContentType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.ContentText
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.GridContentImages
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.Promo
@@ -111,8 +111,9 @@ fun PostReactions(model: PostModel, onReactionClicked: (ReactionModel) -> Unit) 
             when (it.type) {
                 ReactionType.LIKE -> onReactionClicked(it)
                 ReactionType.SHARE -> onReactionClicked(it)
-                ReactionType.COMMENT -> model.topComment.isVisible.value =
-                    !model.topComment.isVisible.value
+                ReactionType.COMMENT -> { onReactionClicked(it)
+                    model.topComment.isVisible.value = !model.topComment.isVisible.value
+                }
             }
 
         }

@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction
+package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

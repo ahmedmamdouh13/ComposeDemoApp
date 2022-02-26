@@ -1,6 +1,5 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.ui
+package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post
 
-import android.content.Context
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,31 +11,41 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostViewModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostItem
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostList
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PostDividerColorOffWhite50
 
 @Composable
-fun Home(postViewModel: PostViewModel = viewModel(), context: Context = LocalContext.current) {
+fun PostList(viewModel: PostViewModel = viewModel()) {
 
-    PostList(postViewModel)
+    val model by viewModel.postsLiveData.observeAsState(listOf())
 
-    postViewModel.getAllPosts(context)
+    LazyColumn(
+        modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth()
+    ) {
 
-}
+        itemsIndexed(model) { index, item ->
+
+            Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
+
+            PostItem(
+                model = item,
+                onReactionClicked = { viewModel.onClickReaction(it) },
+                onLikeComment = { viewModel.onLikeComment(it) },
+                onMenuButtonClicked = { viewModel.onMenuButtonClick() },
+                onPromoActionClick = {viewModel.onPromoActionClick(it)}
+            )
+
+            Divider(color = PostDividerColorOffWhite50, thickness = 3.dp)
+        }
 
 
+    }
 
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun PreviewHome() {
-//    Home()
+
 }

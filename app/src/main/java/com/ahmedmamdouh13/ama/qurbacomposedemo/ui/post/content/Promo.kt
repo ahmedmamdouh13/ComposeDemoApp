@@ -15,7 +15,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.ProfileHeader
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.ProfilePicture
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor

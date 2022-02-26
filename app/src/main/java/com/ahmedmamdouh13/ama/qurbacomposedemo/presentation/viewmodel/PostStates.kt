@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation
+package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
