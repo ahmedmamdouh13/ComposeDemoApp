@@ -6,17 +6,24 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ahmedmamdouh13.ama.qurbacomposedemo.R
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.comment
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.like
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.share
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
 
 @Composable
@@ -31,7 +38,7 @@ private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
     ) {
 
         Text(
-            text = model.displayableCount, textAlign = TextAlign.Center,
+            text = model.displayableCount.value, textAlign = TextAlign.Center,
             modifier = Modifier.align(Alignment.CenterVertically)
         )
 
@@ -41,17 +48,26 @@ private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
             painter = painterResource(id = icon),
             contentDescription = model.type.name, alignment = Alignment.Center, modifier = Modifier
                 .size(20.dp)
-                .align(Alignment.CenterVertically)
+                .align(Alignment.CenterVertically),
+            colorFilter = getLikeState(model)
         )
     }
 
 }
 
+fun getLikeState(model: ReactionModel): ColorFilter {
+   return if (model.isLiked.value && model.type == ReactionType.LIKE) ColorFilter.lighting(
+        PromoActionButtonTextColor,
+        PromoActionButtonTextColor
+    )
+    else ColorFilter.colorMatrix(ColorMatrix())
+}
+
 
 private fun getIcon(type: ReactionType): Int = when (type) {
-    ReactionType.LIKE -> R.drawable.ic_like
-    ReactionType.SHARE -> R.drawable.ic_share
-    ReactionType.COMMENT -> R.drawable.ic_comment
+    ReactionType.LIKE -> like
+    ReactionType.SHARE -> share
+    ReactionType.COMMENT -> comment
 }
 
 
@@ -89,7 +105,7 @@ fun ReactionsBar(reactions: List<ReactionModel>, onReactionClicked: (ReactionMod
 fun previewReaction() {
     val displayableCount = (80000L).toDisplayableCount()
     val type = ReactionType.COMMENT
-    Reaction(ReactionModel(0, displayableCount, type)) {
+    Reaction(ReactionModel(0, remember { mutableStateOf(displayableCount) }, type)) {
         println(it.type.name + " here!!!")
     }
 

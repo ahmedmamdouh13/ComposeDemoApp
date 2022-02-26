@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -70,11 +71,12 @@ fun ProfileHeader(
     userName: String,
     isSharing: Boolean = false,
     isVendor: Boolean = false,
+    titleTextStyle: TextStyle = Typography.h1,
 ) {
     Row {
         Text(
             text = userName,
-            style = Typography.h1,
+            style = titleTextStyle,
             maxLines = 1,
             softWrap = false,
             overflow = TextOverflow.Ellipsis

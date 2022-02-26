@@ -15,14 +15,16 @@ fun Timestamp.toDisplayableDateTime(): String {
     val days = hours / 24
     val months = days / 30
     val years = months / 12
+    val s = "s"
 
     return when {
-        seconds in 1 .. 59 -> "$seconds seconds ago"
-        minutes in 1 .. 59 -> "$minutes minutes ago"
-        hours in 1 .. 23 -> "$hours hours ago"
-        days in 1 .. 29 -> "$days days ago"
-        months in 1 .. 11 -> "$months months ago"
-        else -> "$years years ago"
+        seconds in 1..59 -> "$seconds second${if (seconds > 1) s else ""} ago"
+        minutes in 1..59 -> "$minutes minute${if (minutes > 1) s else ""} ago"
+        hours in 1..23 -> "$hours hour${if (hours > 1) s else ""} ago"
+        days == 1L -> "Yesterday"
+        days in 2..29 -> "$days days ago"
+        months in 1..11 -> "$months month${if (months > 1) s else ""} ago"
+        else -> "$years year${if (years > 1) s else ""} ago"
     }
 
 }

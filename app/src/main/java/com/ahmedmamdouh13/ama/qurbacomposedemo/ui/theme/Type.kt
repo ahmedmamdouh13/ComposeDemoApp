@@ -15,11 +15,23 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
         color = FontColorTitleBlack
+    ),
+    body2 = TextStyle(
+        fontFamily = FontFamily(Font(R.font.montserrat_regular)),
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        color = FontColorTitleBlack
     )
     ,h1 = TextStyle(
         fontFamily = FontFamily(Font(R.font.montserrat_semibold)),
         fontWeight = FontWeight.Bold,
         fontSize = 14.sp,
+        color = FontColorTitleBlack
+    )
+    ,h2 = TextStyle(
+        fontFamily = FontFamily(Font(R.font.montserrat_semibold)),
+        fontWeight = FontWeight.Bold,
+        fontSize = 12.sp,
         color = FontColorTitleBlack
     )
     ,subtitle1 = TextStyle(

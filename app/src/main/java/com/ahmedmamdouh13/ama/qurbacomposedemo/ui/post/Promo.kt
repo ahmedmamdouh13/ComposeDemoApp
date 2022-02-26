@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.model.post.promo.PromoModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.BorderColorBlack
@@ -23,10 +24,7 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Typography
 @Composable
 fun Promo(model: PromoModel, onClickActionButton: (PromoModel) -> Unit) {
     Column(
-        modifier = Modifier.padding(
-            start = dimensionResource(id = R.dimen.padding_16),
-            end = dimensionResource(id = R.dimen.padding_16)
-        )
+
     ) {
 
         Row(
@@ -63,14 +61,7 @@ fun Promo(model: PromoModel, onClickActionButton: (PromoModel) -> Unit) {
             Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_10)))
             ActionButton(model, onClick = onClickActionButton)
         }
-        Divider(
-            modifier = Modifier.padding(
-                top = dimensionResource(id = R.dimen.padding_8),
 
-                ),
-            thickness = 0.5.dp,
-            color = BorderColorBlack
-        )
     }
 
 }
@@ -97,7 +88,8 @@ fun ActionButton(model: PromoModel, onClick: (PromoModel) -> Unit) {
         Text(
             text = model.actionButtonText,
             color = PromoActionButtonTextColor,
-            style = Typography.body1
+            style = Typography.subtitle1,
+            fontSize = 14.sp
         )
 
 
