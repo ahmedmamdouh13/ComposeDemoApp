@@ -36,6 +36,10 @@ fun PostList(viewModel: PostViewModel = viewModel()) {
                 .fillMaxWidth()
         ) {
 
+            item {
+                Box(modifier = Modifier.height(56.dp)) // to slide content under the top bar
+            }
+
             itemsIndexed(model) { _, item ->
 
                 Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
@@ -56,25 +60,4 @@ fun PostList(viewModel: PostViewModel = viewModel()) {
     }
 
 
-}
-
-@Composable
-fun ShimmerList() {
-    Column(
-        modifier = Modifier
-            .wrapContentHeight()
-            .fillMaxWidth()
-    ) {
-
-        repeat(3) {
-            Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
-
-            Shimmer()
-
-            Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
-
-            Divider(color = PostDividerColorOffWhite50, thickness = 3.dp)
-        }
-
-    }
 }

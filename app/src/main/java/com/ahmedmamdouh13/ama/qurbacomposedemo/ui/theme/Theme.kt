@@ -33,9 +33,9 @@ private val LightColorPalette = lightColors(
     */
 )
 
+//Ripple
 private object RippleCustomTheme: RippleTheme {
 
-    //Your custom implementation...
     @Composable
     override fun defaultColor() =
         RippleTheme.defaultRippleColor(

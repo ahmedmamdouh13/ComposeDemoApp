@@ -34,15 +34,23 @@
         <entry key="../../../../layout/compose-model-1645905197214.xml" value="0.18" />
         <entry key="../../../../layout/compose-model-1645905435719.xml" value="0.33" />
         <entry key="../../../../layout/compose-model-1645906135909.xml" value="0.21574074074074073" />
+        <entry key="../../../../layout/compose-model-1645908748065.xml" value="0.25462962962962965" />
+        <entry key="../../../../layout/compose-model-1645908751946.xml" value="0.5" />
+        <entry key="../../../../layout/compose-model-1645908854538.xml" value="0.22" />
+        <entry key="../../../../layout/compose-model-1645910437631.xml" value="0.5" />
+        <entry key="../../../../layout/compose-model-1645912603897.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_account.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_cart.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_comment_like.xml" value="0.171" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_keyboard_arrow_right.xml" value="0.171" />
         <entry key="app/src/main/res/drawable/ic_like.xml" value="0.171" />
+        <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_offer.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_restaurant.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_shape_copy.xml" value="0.171" />
         <entry key="app/src/main/res/drawable/ic_shape_copy_13.xml" value="0.1075" />
         <entry key="app/src/main/res/drawable/ic_shape_copy_7.xml" value="0.1075" />
