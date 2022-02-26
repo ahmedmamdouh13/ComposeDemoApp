@@ -1,7 +1,6 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -29,6 +28,8 @@ fun PostList(viewModel: PostViewModel = viewModel()) {
         ShimmerList()
     }
 
+    val barHeight = dimensionResource(id = R.dimen.barHeight)
+
     AnimatedVisibility(visible = model.isNotEmpty(), enter = fadeIn()) {
         LazyColumn(
             modifier = Modifier
@@ -37,7 +38,7 @@ fun PostList(viewModel: PostViewModel = viewModel()) {
         ) {
 
             item {
-                Box(modifier = Modifier.height(56.dp)) // to slide content under the top bar
+                Box(modifier = Modifier.height(barHeight)) // to slide content under the top bar
             }
 
             itemsIndexed(model) { _, item ->
@@ -55,7 +56,9 @@ fun PostList(viewModel: PostViewModel = viewModel()) {
                 Divider(color = PostDividerColorOffWhite50, thickness = 3.dp)
             }
 
-
+            item {
+                Box(modifier = Modifier.height(barHeight)) // to slide content under the top bar
+            }
         }
     }
 
