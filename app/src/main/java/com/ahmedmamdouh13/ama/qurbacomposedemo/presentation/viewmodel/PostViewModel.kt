@@ -20,10 +20,11 @@ import kotlinx.coroutines.launch
 
 class PostViewModel() : ViewModel() {
 
+    private val repo: PostsRepository = PostsRepository()
     private val postStates: PostStates = PostStates()
+
     private val _postsLiveData: MutableLiveData<List<PostModel>> = MutableLiveData()
     val postsLiveData: LiveData<List<PostModel>> = _postsLiveData
-    private val repo: PostsRepository = PostsRepository()
 
     fun getAllPosts(context: Context) {
         viewModelScope.launch {
@@ -43,7 +44,6 @@ class PostViewModel() : ViewModel() {
     }
 
     fun onClickReaction(reaction: ReactionModel) {
-
         when (reaction.type) {
             ReactionType.LIKE -> {
 
@@ -52,12 +52,9 @@ class PostViewModel() : ViewModel() {
 
                 reaction.isLiked.value = !reaction.isLiked.value
             }
-            ReactionType.SHARE -> {
-            }
-            ReactionType.COMMENT -> {
-            }
+            ReactionType.SHARE -> { }
+            ReactionType.COMMENT -> { }
         }
-
     }
 
     fun onLikeComment(comment: CommentModel) {

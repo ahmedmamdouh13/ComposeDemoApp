@@ -11,6 +11,7 @@ class PostsRepository() {
         return flow {
             try {
                 val allPosts = LocalDataSource.getAllPosts(context)
+                kotlinx.coroutines.delay(2000)
                 emit(Result.Success(allPosts))
             } catch (e: Exception) {
                 emit(Result.Error(e))
