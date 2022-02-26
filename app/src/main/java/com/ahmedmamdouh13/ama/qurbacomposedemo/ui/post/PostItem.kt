@@ -169,7 +169,11 @@ fun PostContent(
                 }
                 ContentType.SHARED_POST -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
-                    PostPadding(startEndPadding) { SharedPost(content.sharedPost) }
+                    PostPadding(startEndPadding) {
+                        content.sharedPost?.let {
+                            SharedPost(it)
+                        }
+                    }
                 }
                 ContentType.PROMO -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))

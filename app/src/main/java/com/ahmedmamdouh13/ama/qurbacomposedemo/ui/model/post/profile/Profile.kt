@@ -6,7 +6,7 @@ open class PostProfileModel(
     val postId: Long,
     val userId: Long,
     val userName: String,
-    val profilePicRes: Int,
+    val profilePicUrl: String,
     val timestamp: Timestamp,
     val profileType: ProfileType,
     var sharedWith: SharedWith? = null,

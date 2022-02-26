@@ -35,7 +35,7 @@ fun Comment(model: CommentModel, onLikeClicked: (CommentModel) -> Unit) {
 
     Row(modifier = Modifier.wrapContentSize()) {
         Box() {
-            ProfilePicture(profilePicRes = model.profilePicRes)
+            ProfilePicture(profilePicRes = model.profilePicUrl)
         }
 
         Spacer(
@@ -132,28 +132,28 @@ fun CommentBubble(userName: String, commentText: String) {
     }
 
 }
-
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun PreviewComment() {
-    val mutableStateOf = remember { mutableStateOf(120L) }
-
-    Comment(
-        model = CommentModel(
-            0,
-            0,
-            "Ahmed Mamoduh",
-            R.drawable.pp,
-            mutableStateOf,
-            1645730335701L,
-            "Very good quality! alksm laksd lajsld ;laksd l;asd;lasdf ;asdk ujfkf"
-        )
-    ) {
-        if (it.isLiked.value) {
-            mutableStateOf.value = 119L
-        } else mutableStateOf.value = 121L
-
-        it.isLiked.value = !it.isLiked.value
-    }
-
-}
+//
+//@Preview(showSystemUi = true, showBackground = true)
+//@Composable
+//fun PreviewComment() {
+//    val mutableStateOf = remember { mutableStateOf(120L) }
+//
+//    Comment(
+//        model = CommentModel(
+//            0,
+//            0,
+//            "Ahmed Mamoduh",
+//            R.drawable.pp,
+//            mutableStateOf,
+//            1645730335701L,
+//            "Very good quality! alksm laksd lajsld ;laksd l;asd;lasdf ;asdk ujfkf"
+//        )
+//    ) {
+//        if (it.isLiked.value) {
+//            mutableStateOf.value = 119L
+//        } else mutableStateOf.value = 121L
+//
+//        it.isLiked.value = !it.isLiked.value
+//    }
+//
+//}

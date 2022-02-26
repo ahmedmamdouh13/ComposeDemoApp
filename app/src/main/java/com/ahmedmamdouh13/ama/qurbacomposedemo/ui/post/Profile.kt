@@ -13,6 +13,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
+import com.ahmedmamdouh13.ama.qurbacomposedemo.BuildConfig
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.arrow
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.blueTick
@@ -31,7 +33,7 @@ fun PostProfile(model: PostProfileModel) {
     ) {
 
 
-        ProfilePicture(model.profilePicRes)
+        ProfilePicture(model.profilePicUrl)
 
         Column(
             modifier = Modifier
@@ -121,29 +123,29 @@ fun ProfileHeader(
 
 
 @Composable
-fun ProfilePicture(profilePicRes: Int) {
+fun ProfilePicture(profilePicRes: String) {
     Image(
         modifier = Modifier
             .size(40.dp)
             .clip(RoundedCornerShape(20.dp)),
-        painter = painterResource(id = profilePicRes),
+        painter = rememberImagePainter(data = profilePicRes),
         contentDescription = ""
     )
 }
 
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun PreviewPostProfile() {
-    PostProfile(
-        model = PostProfileModel(
-            0,
-            0,
-            "Ahmed Mamdouh",
-            R.drawable.pp,
-            1645730335701L,
-            ProfileType.BUYER,
-            SharedWith(0, 0, "Mohamed Mady", ProfileType.BUYER, false),
-            false
-        )
-    )
-}
+//@Preview(showSystemUi = true, showBackground = true)
+//@Composable
+//fun PreviewPostProfile() {
+//    PostProfile(
+//        model = PostProfileModel(
+//            0,
+//            0,
+//            "Ahmed Mamdouh",
+//            R.drawable.pp,
+//            1645730335701L,
+//            ProfileType.BUYER,
+//            SharedWith(0, 0, "Mohamed Mady", ProfileType.BUYER, false),
+//            false
+//        )
+//    )
+//}

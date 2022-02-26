@@ -1,9 +1,10 @@
 
-package com.ahmedmamdouh13.ama.qurbacomposedemo
+package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -24,7 +25,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                   Home()
+
+                   Home( )
                 }
             }
         }
@@ -35,6 +37,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     QurbaComposeDemoTheme {
-        Home()
+//        Home()
     }
 }

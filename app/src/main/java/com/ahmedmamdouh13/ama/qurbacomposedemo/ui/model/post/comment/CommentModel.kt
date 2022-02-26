@@ -9,7 +9,7 @@ data class CommentModel(
     val commentId: Long,
     val postId: Long,
     val userName: String,
-    val profilePicRes: Int,
+    val profilePicUrl: String,
     val likesCount:  MutableState<Count>  = mutableStateOf(0L),
     val timestamp: Timestamp,
     val commentText: String,

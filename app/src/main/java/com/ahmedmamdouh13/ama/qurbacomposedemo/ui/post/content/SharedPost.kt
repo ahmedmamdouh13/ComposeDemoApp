@@ -16,7 +16,7 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostProfile
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.BorderColorOffWhite
 
 @Composable
-fun SharedPost(model: PostModel?) {
+fun SharedPost(model: PostModel) {
     Column(
         Modifier
             .wrapContentHeight()
@@ -32,10 +32,10 @@ fun SharedPost(model: PostModel?) {
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
 
         PostPadding(startEndPadding = dimensionResource(id = R.dimen.padding_8)) {
-            PostProfile(model = model!!.profileModel)
+            PostProfile(model = model.profileModel)
         }
 
-        PostContent(model = model!!, startEndPadding = dimensionResource(id = R.dimen.padding_8))
+        PostContent(model = model, startEndPadding = dimensionResource(id = R.dimen.padding_8))
 
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
     }

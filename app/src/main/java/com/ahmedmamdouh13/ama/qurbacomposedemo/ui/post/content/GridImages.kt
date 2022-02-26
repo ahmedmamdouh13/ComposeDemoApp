@@ -8,15 +8,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 
 
 private const val defaultImageContentHeight = 192
 private const val paddingSize = 4
 private val displayMetrics = Resources.getSystem().displayMetrics
-val defaultImageContentWidth = (displayMetrics.widthPixels / displayMetrics.density) / 2
 
 @Composable
-fun GridContentImages(images: List<Int>) {
+fun GridContentImages(images: List<String>) {
+    val defaultImageContentWidth = (displayMetrics.widthPixels / displayMetrics.density) / 2
+
     var minImageWidthSize = defaultImageContentWidth
     var height = defaultImageContentHeight
 
@@ -30,7 +32,7 @@ fun GridContentImages(images: List<Int>) {
             modifier = Modifier
                 .width(minImageWidthSize.dp)
                 .height(defaultImageContentHeight.dp),
-            painter = painterResource(id = images[0]),
+            painter = rememberImagePainter(data = images[0]),
             contentDescription = "",
             contentScale = ContentScale.Crop
 
@@ -44,7 +46,7 @@ fun GridContentImages(images: List<Int>) {
                     modifier = Modifier
                         .height(height.dp)
                         .width(minImageWidthSize.dp),
-                    painter = painterResource(id = images[i]),
+                    painter = rememberImagePainter(data = images[i]),
                     contentDescription = "",
                     contentScale = ContentScale.Crop
                 )

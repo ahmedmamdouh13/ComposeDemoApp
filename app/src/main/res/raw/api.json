@@ -1,0 +1,258 @@
+[
+  {
+    "profile": {
+      "postId": 1,
+      "userId": 1,
+      "userName": "Anderson Beckett",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_1",
+      "timestamp": 1645730335001,
+      "profileType": 0,
+      "sharedWith": false,
+      "isVerified": true
+    },
+    "content": [
+      {
+        "type": "TEXT",
+        "text": "The Food we had enjoyed at the time of dinner. It was really delicious taste with great quality, everything had unique taste which we had ordered."
+      },
+      {
+        "type": "IMAGE",
+        "images": [
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_1",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_2",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_4",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_5",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_6"
+        ]
+      },
+      {
+        "type": "PROMO",
+        "promo": {
+          "postId": 1,
+          "vendorId": 1,
+          "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_1",
+          "vendorPromoTitle": "Chicken MACDO, Carmel Sandae, Friday and every thing you want",
+          "vendorPromoSubtitle": "In-n-Out Burger",
+          "actionButtonText": "View Menu",
+          "isActionNeeded": true
+        }
+      }
+    ],
+    "topComment": {
+      "commentId": 1,
+      "postId": 1,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
+      "likesCount": 999,
+      "timestamp": 1645730335001,
+      "commentText": "Very good!",
+      "isLiked": false,
+      "isVisible": false
+    },
+    "reactions": [
+      {
+        "postId": 1,
+        "count": 200,
+        "type": "LIKE",
+        "isLiked": true
+      },
+      {
+        "postId": 1,
+        "count": 30,
+        "type": "COMMENT"
+      },
+      {
+        "postId": 1,
+        "count": 15,
+        "type": "SHARE"
+      }
+    ]
+  },
+  {
+    "profile": {
+      "postId": 2,
+      "userId": 2,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
+      "timestamp": 1645730335001,
+      "profileType": 0,
+      "sharedWith": false,
+      "isVerified": true
+    },
+    "content": [
+      {
+        "type": "TEXT",
+        "text": "I and my friend had dinner here one of the nights we were in Kalpetta. The ambiance was good and the food recommendations were great. We had a traditional Arabian rice and chicken preparation."
+      },
+      {
+        "type": "IMAGE",
+        "images": [
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_7",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_3",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_5",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_4"
+        ]
+      },
+      {
+        "type": "PROMO",
+        "promo": {
+          "postId": 2,
+          "vendorId": 2,
+          "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_2",
+          "vendorPromoTitle": "Buy 2 Chicken Burger Combo and get 2 and every thing you want",
+          "vendorPromoSubtitle": "Starbucks",
+          "actionButtonText": "",
+          "isActionNeeded": false
+        }
+      }
+    ],
+    "topComment": {
+      "commentId": 2,
+      "postId": 2,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_1",
+      "likesCount": 999,
+      "timestamp": 1645730335001,
+      "commentText": "The best one so far, waiting for more offers indeed!",
+      "isLiked": true,
+      "isVisible": true
+    },
+    "reactions": [
+      {
+        "postId": 1,
+        "count": 1999,
+        "type": "LIKE",
+        "isLiked": false
+      },
+      {
+        "postId": 1,
+        "count": 30,
+        "type": "COMMENT"
+      },
+      {
+        "postId": 1,
+        "count": 15,
+        "type": "SHARE"
+      }
+    ]
+  },
+  {
+    "profile": {
+      "postId": 3,
+      "userId": 3,
+      "userName": "Carson Cohen",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_3",
+      "timestamp": 1645730305001,
+      "profileType": 0,
+      "sharedWith": false,
+      "isVerified": true
+    },
+    "content": [
+      {
+        "type": "TEXT",
+        "text": "We visited this place for breakfast and dinner. The place is very conveniently located (on the highway ) with ample parking space."
+      },
+      {
+        "type": "SHARED_POST",
+        "sharedPost": {
+          "profile": {
+            "postId": 1,
+            "userId": 1,
+            "userName": "Anderson Beckett",
+            "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_1",
+            "timestamp": 1645730335001,
+            "profileType": 0,
+            "sharedWith": false,
+            "isVerified": true
+          },
+          "content": [
+            {
+              "type": "TEXT",
+              "text": "The Food we had enjoyed at the time of dinner. It was really delicious taste with great quality, everything had unique taste which we had ordered."
+            },
+            {
+              "type": "IMAGE",
+              "images": [
+                "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_1",
+                "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_2",
+                "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_4",
+                "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_5",
+                "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_6"
+              ]
+            },
+            {
+              "type": "PROMO",
+              "promo": {
+                "postId": 1,
+                "vendorId": 1,
+                "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_1",
+                "vendorPromoTitle": "Chicken MACDO, Carmel Sandae, Friday and every thing you want",
+                "vendorPromoSubtitle": "In-n-Out Burger",
+                "actionButtonText": "View Menu",
+                "isActionNeeded": true
+              }
+            }
+          ],
+          "topComment": {
+            "commentId": 1,
+            "postId": 1,
+            "userName": "Campbell Cash",
+            "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
+            "likesCount": 999,
+            "timestamp": 1645730335001,
+            "commentText": "Very good!",
+            "isLiked": false,
+            "isVisible": false
+          },
+          "reactions": [
+            {
+              "postId": 1,
+              "count": 200,
+              "type": "LIKE",
+              "isLiked": true
+            },
+            {
+              "postId": 1,
+              "count": 30,
+              "type": "COMMENT"
+            },
+            {
+              "postId": 1,
+              "count": 15,
+              "type": "SHARE"
+            }
+          ]
+        }
+      }
+    ],
+    "topComment": {
+      "commentId": 2,
+      "postId": 2,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_1",
+      "likesCount": 9999,
+      "timestamp": 1645730335001,
+      "commentText": "I can't wait to order this!",
+      "isLiked": true,
+      "isVisible": true
+    },
+    "reactions": [
+      {
+        "postId": 1,
+        "count": 199999,
+        "type": "LIKE",
+        "isLiked": false
+      },
+      {
+        "postId": 1,
+        "count": 30,
+        "type": "COMMENT"
+      },
+      {
+        "postId": 1,
+        "count": 15,
+        "type": "SHARE"
+      }
+    ]
+  }
+]
