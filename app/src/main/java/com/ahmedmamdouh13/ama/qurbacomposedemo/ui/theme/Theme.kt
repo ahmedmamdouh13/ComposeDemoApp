@@ -1,6 +1,5 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
@@ -54,7 +53,7 @@ private object RippleCustomTheme: RippleTheme {
 
 @Composable
 fun QurbaComposeDemoTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {

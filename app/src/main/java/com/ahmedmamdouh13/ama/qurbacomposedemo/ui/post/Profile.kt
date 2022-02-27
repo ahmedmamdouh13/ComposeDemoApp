@@ -13,12 +13,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.arrowRes
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.blueTickRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.PostProfileModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.ProfileType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.restaurantRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Typography
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.arrowRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.blueTickRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.restaurantCircledRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableDateTime
 
 @Composable
@@ -50,6 +50,7 @@ fun PostProfile(model: PostProfileModel) {
                 ProfileHeader(
                     isVerified = model.sharedWith!!.isVerified,
                     userName = model.sharedWith!!.sharedWithName,
+                    isVendor = model.sharedWith!!.profileType == ProfileType.VENDOR,
                 )
 
             Spacer(modifier = Modifier.padding(top = 1.dp))
@@ -97,7 +98,7 @@ fun ProfileHeader(
                     .size(18.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = restaurantRes),
+                painter = painterResource(id = restaurantCircledRes),
                 contentDescription = "Vendor",
                 alignment = Alignment.Center,
             )

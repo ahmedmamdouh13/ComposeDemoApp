@@ -7,7 +7,6 @@
       "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_1",
       "timestamp": 1645730335001,
       "profileType": 0,
-      "sharedWith": false,
       "isVerified": true
     },
     "content": [
@@ -76,7 +75,6 @@
       "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
       "timestamp": 1645730335001,
       "profileType": 0,
-      "sharedWith": false,
       "isVerified": true
     },
     "content": [
@@ -144,7 +142,6 @@
       "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_3",
       "timestamp": 1645730305001,
       "profileType": 0,
-      "sharedWith": false,
       "isVerified": true
     },
     "content": [
@@ -162,7 +159,6 @@
             "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_1",
             "timestamp": 1645730335001,
             "profileType": 0,
-            "sharedWith": false,
             "isVerified": true
           },
           "content": [
@@ -188,8 +184,8 @@
                 "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_1",
                 "vendorPromoTitle": "Chicken MACDO, Carmel Sandae, Friday and every thing you want",
                 "vendorPromoSubtitle": "In-n-Out Burger",
-                "actionButtonText": "View Menu",
-                "isActionNeeded": true
+                "actionButtonText": "",
+                "isActionNeeded": false
               }
             }
           ],
@@ -242,6 +238,207 @@
         "count": 199999,
         "type": "LIKE",
         "isLiked": false
+      },
+      {
+        "postId": 1,
+        "count": 30,
+        "type": "COMMENT"
+      },
+      {
+        "postId": 1,
+        "count": 15,
+        "type": "SHARE"
+      }
+    ]
+  },
+  {
+    "profile": {
+      "postId": 4,
+      "userId": 4,
+      "userName": "Anderson Beckett",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_4",
+      "timestamp": 1645730335001,
+      "profileType": 0,
+      "isVerified": true
+    },
+    "content": [
+      {
+        "type": "TEXT",
+        "text": "The Food we had enjoyed at the time of dinner. It was really delicious taste with great quality, everything had unique taste which we had ordered."
+      },
+      {
+        "type": "IMAGE",
+        "images": [
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_7",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_6"
+        ]
+      },
+      {
+        "type": "PROMO",
+        "promo": {
+          "postId": 1,
+          "vendorId": 1,
+          "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_1",
+          "vendorPromoTitle": "Chicken MACDO, Carmel Sandae, Friday and every thing you want",
+          "vendorPromoSubtitle": "In-n-Out Burger",
+          "actionButtonText": "View Menu",
+          "isActionNeeded": false
+        }
+      }
+    ],
+    "topComment": {
+      "commentId": 1,
+      "postId": 1,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
+      "likesCount": 999,
+      "timestamp": 1645730335001,
+      "commentText": "Very good!",
+      "isLiked": false,
+      "isVisible": false
+    },
+    "reactions": [
+      {
+        "postId": 1,
+        "count": 200,
+        "type": "LIKE",
+        "isLiked": true
+      },
+      {
+        "postId": 1,
+        "count": 30,
+        "type": "COMMENT"
+      },
+      {
+        "postId": 1,
+        "count": 15,
+        "type": "SHARE"
+      }
+    ]
+  },
+  {
+    "profile": {
+      "postId": 4,
+      "userId": 4,
+      "userName": "KFC",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_3",
+      "timestamp": 1645730335001,
+      "profileType": 1,
+      "isVerified": true
+    },
+    "content": [
+      {
+        "type": "TEXT",
+        "text": "The Food we had enjoyed at the time of dinner. It was really delicious taste with great quality, everything had unique taste which we had ordered."
+      },
+      {
+        "type": "IMAGE",
+        "images": [
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_2"
+        ]
+      },
+      {
+        "type": "PROMO",
+        "promo": {
+          "postId": 1,
+          "vendorId": 1,
+          "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_3",
+          "vendorPromoTitle": "Chicken MACDO, Carmel Sandae, Friday and every thing you want",
+          "vendorPromoSubtitle": "KFC",
+          "actionButtonText": "View Menu",
+          "isActionNeeded": false
+        }
+      }
+    ],
+    "topComment": {
+      "commentId": 1,
+      "postId": 1,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
+      "likesCount": 999,
+      "timestamp": 1645730335001,
+      "commentText": "Very good!",
+      "isLiked": false,
+      "isVisible": false
+    },
+    "reactions": [
+      {
+        "postId": 1,
+        "count": 200,
+        "type": "LIKE",
+        "isLiked": true
+      },
+      {
+        "postId": 1,
+        "count": 30,
+        "type": "COMMENT"
+      },
+      {
+        "postId": 1,
+        "count": 15,
+        "type": "SHARE"
+      }
+    ]
+  },
+  {
+    "profile": {
+      "postId": 1,
+      "userId": 1,
+      "userName": "Nanny Sanderson",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_5",
+      "timestamp": 1645730335001,
+      "profileType": 0,
+      "sharedWith": {
+        "userId": 4,
+        "postId": 4,
+        "sharedWithName": "Campbell Cash",
+        "profileType": 0,
+        "isVerified": true
+      },
+      "isVerified": true
+    },
+    "content": [
+      {
+        "type": "TEXT",
+        "text": "The Food we had enjoyed at the time of dinner. It was really delicious taste with great quality, everything had unique taste which we had ordered."
+      },
+      {
+        "type": "IMAGE",
+        "images": [
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_2",
+          "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/dish_4"
+        ]
+      },
+      {
+        "type": "PROMO",
+        "promo": {
+          "postId": 1,
+          "vendorId": 1,
+          "vendorPic": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/vendor_3",
+          "vendorPromoTitle": "Chicken MACDO, Carmel Sandae, Friday and every thing you want",
+          "vendorPromoSubtitle": "KFC",
+          "actionButtonText": "View Menu",
+          "isActionNeeded": false
+        }
+      }
+    ],
+    "topComment": {
+      "commentId": 1,
+      "postId": 1,
+      "userName": "Campbell Cash",
+      "profilePicUrl": "android.resource://com.ahmedmamdouh13.ama.qurbacomposedemo/drawable/profile_2",
+      "likesCount": 999,
+      "timestamp": 1645730335001,
+      "commentText": "Very good!",
+      "isLiked": false,
+      "isVisible": false
+    },
+    "reactions": [
+      {
+        "postId": 1,
+        "count": 200,
+        "type": "LIKE",
+        "isLiked": true
       },
       {
         "postId": 1,

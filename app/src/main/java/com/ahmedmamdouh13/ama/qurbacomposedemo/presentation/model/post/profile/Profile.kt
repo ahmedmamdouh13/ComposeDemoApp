@@ -9,6 +9,6 @@ open class PostProfileModel(
     val profilePicUrl: String,
     val timestamp: Timestamp,
     val profileType: ProfileType,
-    var sharedWith: SharedWith? = null,
+    var sharedWith: SharedWithModel? = null,
     val isVerified: Boolean
 )

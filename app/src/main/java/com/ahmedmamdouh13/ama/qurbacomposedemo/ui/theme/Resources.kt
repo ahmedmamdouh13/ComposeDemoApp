@@ -9,6 +9,7 @@ const val logoRes = R.drawable.ic_logo
 const val arrowRes = R.drawable.ic_keyboard_arrow_right
 const val likeRes = R.drawable.ic_like
 const val restaurantRes = R.drawable.ic_restaurant
+const val restaurantCircledRes = R.drawable.ic_restaurant_circled
 const val shareRes = R.drawable.ic_share
 const val menuRes = R.drawable.ic_menu
 const val homeRes = R.drawable.ic_home

@@ -1,6 +1,6 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile
 
-data class SharedWith(
+data class SharedWithModel(
     val userId: Long,
     val postId: Long,
     val sharedWithName: String,

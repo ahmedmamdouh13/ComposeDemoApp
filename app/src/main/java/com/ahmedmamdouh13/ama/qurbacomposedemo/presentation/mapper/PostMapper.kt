@@ -3,16 +3,17 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.mapper
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.*
-import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostStates
-import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.ContentType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.PostContent
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.ContentType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.PostContent
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.PostProfileModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.ProfileType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.SharedWithModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostStates
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.Count
 
 //Content type
@@ -100,7 +101,10 @@ private fun Content.toContentModel(postStates: PostStates): PostContent =
         TEXT -> PostContent(ContentType.TEXT, text = this.text)
         IMAGE -> PostContent(ContentType.IMAGE, images = this.images)
         PROMO -> PostContent(ContentType.PROMO, promo = this.promo.toPromoModel())
-        SHARED_POST -> PostContent(ContentType.SHARED_POST, sharedPost = this.sharedPost.toPostModel(postStates))
+        SHARED_POST -> PostContent(
+            ContentType.SHARED_POST,
+            sharedPost = this.sharedPost.toPostModel(postStates)
+        )
         else -> PostContent(ContentType.TEXT, text = this.text)
     }
 
@@ -120,8 +124,21 @@ private fun Profile.toProfileModel() =
         this.userName,
         this.profilePicUrl,
         this.timestamp,
-        if (this.profileType == 0) ProfileType.BUYER
-        else ProfileType.VENDOR,
-        null,
+        getProfileType(this.profileType),
+        this.sharedWith?.toSharedWithModel(),
         true
     )
+
+private fun SharedWith.toSharedWithModel(): SharedWithModel =
+    SharedWithModel(
+        this.userId,
+        this.postId,
+        this.sharedWithName,
+        getProfileType(this.profileType),
+        this.isVerified
+    )
+
+private fun getProfileType(profileType: Int): ProfileType {
+    return if (profileType == 0) ProfileType.BUYER
+    else ProfileType.VENDOR
+}

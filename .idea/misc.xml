@@ -56,15 +56,19 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_account.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_cart.xml" value="0.1645" />
+        <entry key="app/src/main/res/drawable/ic_comment.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/ic_comment_like.xml" value="0.171" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_keyboard_arrow_right.xml" value="0.171" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/ic_like.xml" value="0.171" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_offer.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_oval.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_person.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/ic_restaurant.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1645" />
         <entry key="app/src/main/res/drawable/ic_shape_copy.xml" value="0.171" />

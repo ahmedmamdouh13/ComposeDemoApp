@@ -13,7 +13,7 @@ data class Profile(
     @SerializedName("profileType")
     val profileType: Int,
     @SerializedName("sharedWith")
-    val sharedWith: Boolean,
+    val sharedWith: SharedWith,
     @SerializedName("timestamp")
     val timestamp: Long,
     @SerializedName("userId")
