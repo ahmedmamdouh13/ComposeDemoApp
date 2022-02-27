@@ -1,25 +1,23 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.menu
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.menuRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.ContentType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.base.StartEndPadding
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home.ClickableIcon
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.ContentText
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.GridContentImages
@@ -41,7 +39,7 @@ fun PostItem(
 
     Column {
 
-        PostPadding(startEndPadding = startEndPadding) {
+        StartEndPadding(startEndPadding = startEndPadding) {
             PostHeader(model, onMenuButtonClicked) // Profile and menu
         }
 
@@ -51,18 +49,18 @@ fun PostItem(
 
         if (isDividerNeeded(model)) {
             Spacer(modifier = Modifier.padding(top = topPadding))
-            PostPadding(startEndPadding = startEndPadding) {
-                PostDivider()
+            StartEndPadding(startEndPadding = startEndPadding) {
+                ReactionDivider()
             }
         }
 
         Spacer(modifier = Modifier.padding(top = topPadding))
 
-        PostPadding(startEndPadding = startEndPadding) {
+        StartEndPadding(startEndPadding = startEndPadding) {
             PostReactions(model, onReactionClicked)  // Likes, Comments and Shares count.
         }
 
-        PostPadding(startEndPadding = startEndPadding) {
+        StartEndPadding(startEndPadding = startEndPadding) {
             PostTopComment(model, onLikeComment) // Top/Apparent comment.
         }
 
@@ -127,7 +125,7 @@ fun PostTopComment(model: PostModel, onLikeComment: (CommentModel) -> Unit) {
         Column(
 
         ) {
-            PostDivider()
+            ReactionDivider()
 
             Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
 
@@ -140,19 +138,9 @@ fun PostTopComment(model: PostModel, onLikeComment: (CommentModel) -> Unit) {
 
 @Composable
 fun Menu(onMenuButtonClicked: () -> Unit) {
-    ClickableIcon(iconRes = menu){
+    ClickableIcon(iconRes = menuRes){
         onMenuButtonClicked()
     }
-
-//    Image(
-//        painterResource(id = menu),
-//        contentDescription = "menu",
-//        modifier = Modifier
-//            .size(20.dp)
-//            .clickable {
-//                onMenuButtonClicked()
-//            }
-//    )
 }
 
 @Composable
@@ -167,7 +155,7 @@ fun PostContent(
             when (content.type) {
                 ContentType.TEXT -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
-                    PostPadding(startEndPadding) { ContentText(content.text) }
+                    StartEndPadding(startEndPadding) { ContentText(content.text) }
                 }
                 ContentType.IMAGE -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
@@ -175,7 +163,7 @@ fun PostContent(
                 }
                 ContentType.SHARED_POST -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
-                    PostPadding(startEndPadding) {
+                    StartEndPadding(startEndPadding) {
                         content.sharedPost?.let {
                             SharedPost(it)
                         }
@@ -183,28 +171,17 @@ fun PostContent(
                 }
                 ContentType.PROMO -> {
                     Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
-                    PostPadding(startEndPadding) { Promo(content.promo!!, onPromoActionClick) }
+                    StartEndPadding(startEndPadding) { Promo(content.promo!!, onPromoActionClick) }
                 }
             }
         }
     }
 }
 
-@Composable
-fun PostPadding(startEndPadding: Dp, item: @Composable () -> Unit) {
-    Box(
-        modifier = Modifier.padding(
-            start = startEndPadding,
-            end = startEndPadding
-        )
-    ) {
-        item()
-    }
-}
 
 
 @Composable
-fun PostDivider() {
+fun ReactionDivider() {
     Divider(
         thickness = 0.5.dp,
         color = BorderColorBlack

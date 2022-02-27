@@ -34,9 +34,7 @@ fun Home(
 
         PostList(postViewModel, homeViewModel)
 
-        Column {
             TopBar()
-        }
 
         Box(
             Modifier

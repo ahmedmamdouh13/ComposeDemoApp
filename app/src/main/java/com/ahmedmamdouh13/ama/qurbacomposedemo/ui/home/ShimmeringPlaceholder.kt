@@ -11,7 +11,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostPadding
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.base.StartEndPadding
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PostDividerColorOffWhite50
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ShimmerColorGray
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ShimmerColorWhitishGray
@@ -36,7 +36,7 @@ fun ShimmerList() {
 
             Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
 
-            Divider(color = PostDividerColorOffWhite50, thickness = 3.dp)
+            Divider(color = PostDividerColorOffWhite50, thickness = dimensionResource(id = R.dimen.dividerThickness))
         }
 
     }
@@ -47,11 +47,11 @@ fun ShimmerList() {
 fun Shimmer() {
     Column {
 
-        PostPadding(startEndPadding = dimensionResource(id = R.dimen.padding_16)) {
+        StartEndPadding(startEndPadding = dimensionResource(id = R.dimen.padding_16)) {
 
             Row {
                 ShimmerCircle()
-                PostPadding(startEndPadding = dimensionResource(id = R.dimen.padding_8)) {
+                StartEndPadding(startEndPadding = dimensionResource(id = R.dimen.padding_8)) {
 
                     Column {
                         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_10)))
@@ -78,7 +78,7 @@ fun Shimmer() {
 
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_16)))
 
-        PostPadding(startEndPadding = dimensionResource(id = R.dimen.padding_16)) {
+        StartEndPadding(startEndPadding = dimensionResource(id = R.dimen.padding_16)) {
             ShimmerReactions()
         }
     }

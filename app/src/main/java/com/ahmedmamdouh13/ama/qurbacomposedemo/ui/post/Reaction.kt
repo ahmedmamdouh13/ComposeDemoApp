@@ -18,13 +18,42 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.comment
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.like
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.share
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.commentRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.likeRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.shareRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
+
+
+@Composable
+fun ReactionsBar(reactions: List<ReactionModel>, onReactionClicked: (ReactionModel) -> Unit) {
+    val like = reactions.find { it.type == ReactionType.LIKE }!!
+    val comment = reactions.find { it.type == ReactionType.COMMENT }!!
+    val share = reactions.find { it.type == ReactionType.SHARE }!!
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(30.dp)
+    ) {
+
+        Box(contentAlignment = Alignment.CenterStart, modifier = Modifier.fillMaxWidth()) {
+            Reaction(model = like, onReactionClicked::invoke)
+        }
+
+        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+            Reaction(model = comment, onReactionClicked::invoke)
+        }
+
+        Box(contentAlignment = Alignment.CenterEnd, modifier = Modifier.fillMaxWidth()) {
+            Reaction(model = share, onReactionClicked::invoke)
+        }
+
+    }
+
+}
 
 @Composable
 private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
@@ -55,8 +84,8 @@ private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
 
 }
 
-fun getLikeState(model: ReactionModel): ColorFilter {
-   return if (model.isLiked.value && model.type == ReactionType.LIKE) ColorFilter.lighting(
+private fun getLikeState(model: ReactionModel): ColorFilter {
+    return if (model.isLiked.value && model.type == ReactionType.LIKE) ColorFilter.lighting(
         PromoActionButtonTextColor,
         PromoActionButtonTextColor
     )
@@ -65,39 +94,11 @@ fun getLikeState(model: ReactionModel): ColorFilter {
 
 
 private fun getIcon(type: ReactionType): Int = when (type) {
-    ReactionType.LIKE -> like
-    ReactionType.SHARE -> share
-    ReactionType.COMMENT -> comment
+    ReactionType.LIKE -> likeRes
+    ReactionType.SHARE -> shareRes
+    ReactionType.COMMENT -> commentRes
 }
 
-
-@Composable
-fun ReactionsBar(reactions: List<ReactionModel>, onReactionClicked: (ReactionModel) -> Unit) {
-    val like = reactions.find { it.type == ReactionType.LIKE }!!
-    val comment = reactions.find { it.type == ReactionType.COMMENT }!!
-    val share = reactions.find { it.type == ReactionType.SHARE }!!
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(30.dp)
-    ) {
-
-        Box(contentAlignment = Alignment.CenterStart, modifier = Modifier.fillMaxWidth()) {
-            Reaction(model = like, onReactionClicked::invoke)
-        }
-
-        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
-            Reaction(model = comment, onReactionClicked::invoke)
-        }
-
-        Box(contentAlignment = Alignment.CenterEnd, modifier = Modifier.fillMaxWidth()) {
-            Reaction(model = share, onReactionClicked::invoke)
-        }
-
-    }
-
-}
 
 //preview......
 @Preview(showBackground = true, showSystemUi = true)

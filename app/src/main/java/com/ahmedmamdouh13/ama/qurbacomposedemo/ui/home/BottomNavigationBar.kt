@@ -24,9 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.home.BottomNavigationStateType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ActionButtonFuchsia
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Fuchsia
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Indigo
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.*
 
 
 @Composable
@@ -38,7 +36,7 @@ fun BottomNavigationBar(bottomNavigationState: MutableState<BottomNavigationStat
             .clip(shape)
             .fillMaxWidth()
             .wrapContentHeight()
-            .height(56.dp)
+            .height(dimensionResource(id = R.dimen.barHeight))
             .shadow(1.dp, shape)
             .offset(y = (2).dp)
             .background(
@@ -83,8 +81,7 @@ fun IndicatorIcon(isVisible: Boolean) {
                 .background(
                     shape = RoundedCornerShape(20.dp),
                     brush = Brush.linearGradient(colors = listOf(Indigo, Fuchsia))
-                )
-                .clip(RoundedCornerShape(20.dp))
+                ).clip(RoundedCornerShape(20.dp))
 
         )
 
@@ -93,19 +90,17 @@ fun IndicatorIcon(isVisible: Boolean) {
 
 @Composable
 fun AccountIcon(state: MutableState<BottomNavigationStateType>) {
-
     NavigationIcon(
-        R.drawable.ic_account,
+        accountRes,
         BottomNavigationStateType.ACCOUNT, state
     )
-
 }
 
 
 @Composable
 fun ProfileIcon(state: MutableState<BottomNavigationStateType>) {
     NavigationIcon(
-        R.drawable.ic_profile,
+        profileRes,
         BottomNavigationStateType.PROFILE, state
     )
 }
@@ -114,7 +109,7 @@ fun ProfileIcon(state: MutableState<BottomNavigationStateType>) {
 @Composable
 fun OfferIcon(state: MutableState<BottomNavigationStateType>) {
     NavigationIcon(
-        R.drawable.ic_offer,
+        offerRes,
         BottomNavigationStateType.OFFER, state
     )
 }
@@ -123,7 +118,7 @@ fun OfferIcon(state: MutableState<BottomNavigationStateType>) {
 @Composable
 fun RestaurantIcon(state: MutableState<BottomNavigationStateType>) {
     NavigationIcon(
-        R.drawable.ic_restaurant,
+        restaurantRes,
         BottomNavigationStateType.RESTAURANT, state
     )
 }
@@ -131,7 +126,7 @@ fun RestaurantIcon(state: MutableState<BottomNavigationStateType>) {
 @Composable
 fun HomeIcon(state: MutableState<BottomNavigationStateType>) {
     NavigationIcon(
-        R.drawable.ic_home,
+        homeRes,
         BottomNavigationStateType.HOME, state
     )
 }

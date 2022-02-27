@@ -10,8 +10,8 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.base.StartEndPadding
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostContent
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostPadding
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostProfile
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.BorderColorOffWhite
 
@@ -25,13 +25,13 @@ fun SharedPost(model: PostModel) {
                 start = dimensionResource(id = R.dimen.padding_16),
                 end = dimensionResource(id = R.dimen.padding_16)
             )
-            .clip(shape = RoundedCornerShape(7.dp))
-            .border(1.dp, color = BorderColorOffWhite, RoundedCornerShape(7.dp))
+            .clip(shape = RoundedCornerShape(dimensionResource(id = R.dimen.sharedPostBorderCorner)))
+            .border(1.dp, color = BorderColorOffWhite, RoundedCornerShape(dimensionResource(id = R.dimen.sharedPostBorderCorner)))
     ) {
 
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_8)))
 
-        PostPadding(startEndPadding = dimensionResource(id = R.dimen.padding_8)) {
+        StartEndPadding(startEndPadding = dimensionResource(id = R.dimen.padding_8)) {
             PostProfile(model = model.profileModel)
         }
 

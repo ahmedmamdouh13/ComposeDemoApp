@@ -1,7 +1,6 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -11,13 +10,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostViewModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.home.HomeViewModel
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostDivider
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostItem
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostPadding
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PostDividerColorOffWhite50
 
 @Composable
@@ -50,7 +46,7 @@ fun PostList(viewModel: PostViewModel, homeViewModel: HomeViewModel) {
                         textState = homeViewModel.createPostState
                     )
 
-                Divider(color = PostDividerColorOffWhite50, thickness = 3.dp)
+                Divider(color = PostDividerColorOffWhite50, thickness = dimensionResource(id = R.dimen.dividerThickness))
 
             }
 
@@ -65,7 +61,7 @@ fun PostList(viewModel: PostViewModel, homeViewModel: HomeViewModel) {
                         onPromoActionClick = { viewModel.onPromoActionClick(it) }
                     )
 
-                    Divider(color = PostDividerColorOffWhite50, thickness = 3.dp)
+                    Divider(color = PostDividerColorOffWhite50, thickness = dimensionResource(id = R.dimen.dividerThickness))
             }
 
             item {

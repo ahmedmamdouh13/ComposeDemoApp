@@ -21,7 +21,6 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class PostViewModel() : ViewModel() {
-
     private val repo: PostsRepository = PostsRepository()
     private val postStates: PostStates = PostStates()
 
@@ -33,10 +32,9 @@ class PostViewModel() : ViewModel() {
         viewModelScope.launch {
             repo.getAllPosts(context).collect { result ->
                 when (result) {
-                    is Result.Error -> Log.d(
-                        "PostViewModel",
-                        result.e.message.toString()
-                    )
+                    is Result.Error -> {
+                        Log.d(TAG, result.e.message.toString())
+                    }
                     is Result.Success<*> ->
                         _postsLiveData.value =
                             (result.data as Posts).map { it.toPostModel(postStates) }
@@ -72,6 +70,10 @@ class PostViewModel() : ViewModel() {
 
     fun onMenuButtonClick() {
         //
+    }
+
+    companion object {
+        const val TAG = "PostViewModel"
     }
 
 

@@ -13,11 +13,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.arrow
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.blueTick
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.arrowRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.blueTickRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.PostProfileModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.profile.ProfileType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.restaurant
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.restaurantRes
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Typography
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableDateTime
 
@@ -86,7 +86,7 @@ fun ProfileHeader(
                     .size(15.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = blueTick),
+                painter = painterResource(id = blueTickRes),
                 contentDescription = "Verified",
                 alignment = Alignment.Center,
             )
@@ -97,7 +97,7 @@ fun ProfileHeader(
                     .size(18.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = restaurant),
+                painter = painterResource(id = restaurantRes),
                 contentDescription = "Vendor",
                 alignment = Alignment.Center,
             )
@@ -108,7 +108,7 @@ fun ProfileHeader(
                     .size(15.dp)
                     .padding(start = 4.dp)
                     .align(Alignment.CenterVertically),
-                painter = painterResource(id = arrow),
+                painter = painterResource(id = arrowRes),
                 contentDescription = "Arrow",
                 alignment = Alignment.Center,
             )
@@ -129,19 +129,3 @@ fun ProfilePicture(profilePicRes: String) {
     )
 }
 
-//@Preview(showSystemUi = true, showBackground = true)
-//@Composable
-//fun PreviewPostProfile() {
-//    PostProfile(
-//        model = PostProfileModel(
-//            0,
-//            0,
-//            "Ahmed Mamdouh",
-//            R.drawable.pp,
-//            1645730335701L,
-//            ProfileType.BUYER,
-//            SharedWith(0, 0, "Mohamed Mady", ProfileType.BUYER, false),
-//            false
-//        )
-//    )
-//}

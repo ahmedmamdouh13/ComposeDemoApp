@@ -17,7 +17,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostPadding
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.base.StartEndPadding
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.cartRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.logoRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.notificationRes
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.searchRes
 
 
 @Composable
@@ -25,7 +29,7 @@ fun TopBar() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp)
+            .height(dimensionResource(id = R.dimen.barHeight))
             .shadow(1.dp, RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
             .offset(y = (-1).dp)
             .background(
@@ -43,9 +47,10 @@ fun TopBar() {
                 .wrapContentHeight()
                 .align(Alignment.CenterStart)
         ) {
-            PostPadding(startEndPadding = dimensionResource(id = R.dimen.padding_16)) {
+            StartEndPadding(startEndPadding = dimensionResource(id = R.dimen.padding_16)) {
 
                 LogoIcon()
+
             }
         }
 
@@ -68,29 +73,29 @@ fun TopBar() {
 
 @Composable
 fun SearchIcon() {
-    ClickableIcon(R.drawable.ic_search)
+    ClickableIcon(searchRes)
 }
 
 @Composable
 fun NotificationIcon() {
-    ClickableIcon(R.drawable.ic_notification)
+    ClickableIcon(notificationRes)
 }
 
 @Composable
 fun CartIcon() {
-    ClickableIcon(R.drawable.ic_cart)
+    ClickableIcon(cartRes)
 }
 
 
 @Composable
 fun ClickableIcon(iconRes: Int, onClick: () -> Unit = {}) {
-    Box(modifier = Modifier.size(30.dp)
+    Box(modifier = Modifier
+        .size(30.dp)
         .clip(RoundedCornerShape(15.dp))
         .clickable { onClick() }) {
         Image(
             modifier = Modifier
-                .align(Alignment.Center)
-            , painter = painterResource(id = iconRes),
+                .align(Alignment.Center), painter = painterResource(id = iconRes),
             contentDescription = "search", contentScale = ContentScale.Inside
         )
     }
@@ -100,8 +105,7 @@ fun ClickableIcon(iconRes: Int, onClick: () -> Unit = {}) {
 @Composable
 fun LogoIcon() {
     Image(
-        modifier = Modifier.clickable { },
-        painter = painterResource(id = R.drawable.ic_logo),
+        painter = painterResource(id = logoRes),
         contentDescription = "logo"
     )
 }

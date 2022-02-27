@@ -39,7 +39,7 @@ private object RippleCustomTheme: RippleTheme {
     @Composable
     override fun defaultColor() =
         RippleTheme.defaultRippleColor(
-            colorResource(id = R.color.indigo_gradient),
+            colorResource(id = R.color.fuchsia_gradient),
             lightTheme = true
         )
 
