@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
@@ -18,6 +19,8 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.ProfileHeader
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.ProfilePicture
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ActionButtonFuchsia
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ActionButtonIndigo
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Typography
 
@@ -69,8 +72,9 @@ fun Promo(model: PromoModel, onClickActionButton: (PromoModel) -> Unit) {
 fun ActionButton(model: PromoModel, onClick: (PromoModel) -> Unit) {
 
     val brush = Brush.linearGradient(
-        Pair(0.4f, colorResource(id = R.color.indigo_gradient_A36)),
-        Pair(0.8f, colorResource(id = R.color.fuchsia_gradient_A36)),
+        Pair(0.1f, ActionButtonIndigo),
+        Pair(0.8f, ActionButtonFuchsia),
+        tileMode = TileMode.Decal
     )
 
 

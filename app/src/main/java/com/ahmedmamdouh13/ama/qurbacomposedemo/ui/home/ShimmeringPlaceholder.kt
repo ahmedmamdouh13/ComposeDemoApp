@@ -24,8 +24,10 @@ fun ShimmerList() {
             .wrapContentHeight()
             .fillMaxWidth()
     ) {
+        Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
 
-        Box(modifier = Modifier.height(56.dp)) // to slide content under the top bar
+        Box(modifier = Modifier.height(dimensionResource(id = R.dimen.barHeight))) // to slide content under the top bar
+        Box(modifier = Modifier.height(dimensionResource(id = R.dimen.barHeight))) // to slide content under the top bar
 
         repeat(3) {
             Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))

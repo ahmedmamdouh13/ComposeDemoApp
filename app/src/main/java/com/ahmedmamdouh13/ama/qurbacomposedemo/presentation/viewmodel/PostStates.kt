@@ -12,4 +12,5 @@ class PostStates {
     val topCommentVisibility: ArrayList<MutableState<Boolean>> = arrayListOf()
     val topCommentLike: ArrayList<MutableState<Boolean>> = arrayListOf()
     val topCommentLikesCount: ArrayList<MutableState<Count>> = arrayListOf()
+
 }

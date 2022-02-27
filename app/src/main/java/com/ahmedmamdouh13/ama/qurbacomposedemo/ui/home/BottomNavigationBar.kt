@@ -1,6 +1,8 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home
 
-import androidx.compose.animation.*
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,10 +28,10 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.home.BottomNav
 @Composable
 fun BottomNavigationBar(bottomNavigationState: MutableState<BottomNavigationStateType>) {
     val shape = RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp)
+
     Box(
         modifier = Modifier
             .clip(shape)
-
             .fillMaxWidth()
             .wrapContentHeight()
             .height(56.dp)
@@ -39,10 +41,6 @@ fun BottomNavigationBar(bottomNavigationState: MutableState<BottomNavigationStat
                 color = Color.White,
                 shape = shape
             )
-
-
-
-
     ) {
 
         Row(
@@ -70,7 +68,11 @@ fun BottomNavigationBar(bottomNavigationState: MutableState<BottomNavigationStat
 
 @Composable
 fun IndicatorIcon(isVisible: Boolean) {
-    AnimatedVisibility(visible = isVisible, enter = EnterTransition.None, exit = ExitTransition.None) {
+    AnimatedVisibility(
+        visible = isVisible,
+        enter = EnterTransition.None,
+        exit = ExitTransition.None
+    ) {
         Image(
             painter = painterResource(id = R.drawable.ic_oval),
             contentDescription = "indicator"
@@ -81,31 +83,48 @@ fun IndicatorIcon(isVisible: Boolean) {
 @Composable
 fun AccountIcon(state: MutableState<BottomNavigationStateType>) {
 
-    NavigationIcon(R.drawable.ic_account,
-        BottomNavigationStateType.ACCOUNT, state)
+    NavigationIcon(
+        R.drawable.ic_account,
+        BottomNavigationStateType.ACCOUNT, state
+    )
 
 }
 
 
 @Composable
 fun ProfileIcon(state: MutableState<BottomNavigationStateType>) {
-    NavigationIcon(R.drawable.ic_profile,
-        BottomNavigationStateType.PROFILE, state)
+    NavigationIcon(
+        R.drawable.ic_profile,
+        BottomNavigationStateType.PROFILE, state
+    )
 }
 
 
 @Composable
 fun OfferIcon(state: MutableState<BottomNavigationStateType>) {
-    NavigationIcon(R.drawable.ic_offer,
-        BottomNavigationStateType.OFFER, state)
+    NavigationIcon(
+        R.drawable.ic_offer,
+        BottomNavigationStateType.OFFER, state
+    )
 }
 
 
 @Composable
 fun RestaurantIcon(state: MutableState<BottomNavigationStateType>) {
-       NavigationIcon(R.drawable.ic_restaurant,
-           BottomNavigationStateType.RESTAURANT, state)
+    NavigationIcon(
+        R.drawable.ic_restaurant,
+        BottomNavigationStateType.RESTAURANT, state
+    )
 }
+
+@Composable
+fun HomeIcon(state: MutableState<BottomNavigationStateType>) {
+    NavigationIcon(
+        R.drawable.ic_home,
+        BottomNavigationStateType.HOME, state
+    )
+}
+
 
 @Composable
 fun NavigationIcon(
@@ -116,7 +135,9 @@ fun NavigationIcon(
 ) {
     val isActive = state.value == stateType
 
-    Box(modifier = Modifier.size(40.dp)) {
+    Box(modifier = Modifier.size(40.dp)
+        , contentAlignment = Alignment.Center
+    ) {
 
         IndicatorIcon(isActive)
 
@@ -131,13 +152,6 @@ fun NavigationIcon(
             colorFilter = if (isActive) ColorFilter.tint(Color.White) else null
         )
     }
-}
-
-
-@Composable
-fun HomeIcon(state: MutableState<BottomNavigationStateType>) {
-    NavigationIcon(R.drawable.ic_home,
-        BottomNavigationStateType.HOME, state)
 }
 
 
