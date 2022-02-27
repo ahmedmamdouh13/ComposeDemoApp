@@ -34,6 +34,12 @@ val Typography = Typography(
         fontSize = 12.sp,
         color = FontColorTitleBlack
     )
+    ,h3 = TextStyle(
+        fontFamily = FontFamily(Font(R.font.montserrat_regular)),
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 14.sp,
+        color = FontColorTitleBlack
+    )
     ,subtitle1 = TextStyle(
         fontFamily = FontFamily(Font(R.font.montserrat_regular)),
         fontWeight = FontWeight.Bold,
@@ -42,7 +48,7 @@ val Typography = Typography(
     )
     ,subtitle2 = TextStyle(
         fontFamily = FontFamily(Font(R.font.montserrat_regular)),
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.W400,
         fontSize = 12.sp,
         color = FontColorSubtitleGray
     )

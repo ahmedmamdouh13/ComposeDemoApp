@@ -20,10 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.commentRes
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.likeRes
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.shareRes
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.PromoActionButtonTextColor
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.*
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.toDisplayableCount
 
 
@@ -68,7 +65,7 @@ private fun Reaction(model: ReactionModel, onClick: (ReactionModel) -> Unit) {
 
         Text(
             text = model.count.value.toDisplayableCount(), textAlign = TextAlign.Center,
-            modifier = Modifier.align(Alignment.CenterVertically)
+            modifier = Modifier.align(Alignment.CenterVertically), style = Typography.h3
         )
 
         Spacer(modifier = Modifier.size(4.dp))

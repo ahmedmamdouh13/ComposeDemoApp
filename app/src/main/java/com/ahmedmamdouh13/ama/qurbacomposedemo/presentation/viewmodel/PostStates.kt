@@ -1,9 +1,6 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel
 
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.Count
 
 class PostStates {
@@ -12,5 +9,4 @@ class PostStates {
     val topCommentVisibility: ArrayList<MutableState<Boolean>> = arrayListOf()
     val topCommentLike: ArrayList<MutableState<Boolean>> = arrayListOf()
     val topCommentLikesCount: ArrayList<MutableState<Count>> = arrayListOf()
-
 }

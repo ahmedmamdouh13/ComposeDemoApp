@@ -63,8 +63,8 @@ fun CreatePostTextField(textState: MutableState<String>) {
             .fillMaxWidth()
             .background(Color.White, RoundedCornerShape(20.dp))
             .clip(RoundedCornerShape(20.dp))
-            .offset((-2).dp, (-2).dp)
-            .shadow(1.dp, RoundedCornerShape(bottomEnd = 20.dp, topEnd = 20.dp))
+            .offset((-0.6).dp, (-2).dp)
+            .shadow(0.5.dp, RoundedCornerShape(bottomEnd = 20.dp, topEnd = 20.dp))
 
     ) {
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.home.BottomNavigationStateType
 
 class HomeViewModel: ViewModel() {
+// should be able to fetch and retrieve profile picture and handle home states.
 
     val bottomNavigationState = mutableStateOf(BottomNavigationStateType.HOME)
     val createPostState: MutableState<String> = mutableStateOf("")
