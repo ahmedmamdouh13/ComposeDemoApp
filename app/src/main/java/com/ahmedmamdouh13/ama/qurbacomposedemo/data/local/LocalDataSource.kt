@@ -10,5 +10,5 @@ object LocalDataSource {
         val json = context.resources.openRawResource(R.raw.api).bufferedReader().use { it.readText() }
         return Gson().fromJson(json, Posts::class.java)
     }
-    }
+}
 

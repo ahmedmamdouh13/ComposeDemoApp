@@ -2,6 +2,8 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.data
 
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 
+//Not needed after the JSON file creation
+
 const val dish1 = R.drawable.dish_1
 const val dish2 = R.drawable.dish_2
 const val dish3 = R.drawable.dish_3

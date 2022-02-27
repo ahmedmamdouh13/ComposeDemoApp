@@ -23,7 +23,7 @@ fun Home(
     context: Context = LocalContext.current
 ) {
 
-    Box(Modifier.fillMaxSize()) {
+    Box(Modifier.fillMaxSize()) { // Ordered by what's elevated on top last.
 
         PostList(postViewModel, homeViewModel) // List of posts
 
@@ -38,6 +38,7 @@ fun Home(
         }
     }
 
+    // fetch all posts
     postViewModel.getAllPosts(context)
 
 }

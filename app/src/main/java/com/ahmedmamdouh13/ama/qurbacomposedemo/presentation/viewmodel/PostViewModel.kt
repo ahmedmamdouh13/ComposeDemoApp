@@ -27,21 +27,32 @@ class PostViewModel() : ViewModel() {
     val postsLiveData: LiveData<List<PostModel>> = _postsLiveData
 
     fun getAllPosts(context: Context) {
-        viewModelScope.launch {
-            repo.getAllPosts(context).collect { result ->
-                when (result) {
-                    is Result.Error -> {
-                        Log.d(TAG, result.e.message.toString())
-                    }
-                    is Result.Success<*> ->
-                        _postsLiveData.value =
-                            (result.data as Posts).map { it.toPostModel(postStates) }
+        if (postStates.postList.value.isEmpty())
+            viewModelScope.launch {
+                repo.getAllPosts(context).collect { result ->
+                    handleResult(result)
                 }
             }
+    }
 
+    private fun handleResult(result: Result) {
+        when (result) {
+            is Result.Error -> {
+                Log.d(TAG, result.e.message.toString())
+            }
+            is Result.Success<*> -> {
+                val posts = result.data as Posts
+
+                //pass post states from viewmodel to survive lifecycle changes.
+                val postModel = posts.map { it.toPostModel(postStates) }
+
+                _postsLiveData.value = postModel
+                postStates.postList.value = postModel
+            }
         }
     }
 
+    // should be a result of a successful request to react to a post.
     fun onClickReaction(reaction: ReactionModel) {
         when (reaction.type) {
             ReactionType.LIKE -> {
@@ -51,11 +62,16 @@ class PostViewModel() : ViewModel() {
 
                 reaction.isLiked.value = !reaction.isLiked.value
             }
-            ReactionType.SHARE -> { }
-            ReactionType.COMMENT -> { }
+            ReactionType.SHARE -> {
+                //
+            }
+            ReactionType.COMMENT -> {
+                //
+            }
         }
     }
 
+    // should be a result of a successful request to react to the top comment.
     fun onLikeComment(comment: CommentModel) {
         if (!comment.isLiked.value) comment.likesCount.value = comment.likesCount.value + 1
         else comment.likesCount.value = comment.likesCount.value - 1
