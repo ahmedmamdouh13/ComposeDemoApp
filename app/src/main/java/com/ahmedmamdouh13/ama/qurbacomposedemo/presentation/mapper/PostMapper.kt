@@ -2,6 +2,7 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.mapper
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.local.DataConstants
 import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.response.*
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
@@ -15,17 +16,6 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostStates
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.Count
-
-//Content type
-const val TEXT = "TEXT"
-const val IMAGE = "IMAGE"
-const val PROMO = "PROMO"
-const val SHARED_POST = "SHARED_POST"
-
-//Reactions type
-const val SHARE = "SHARE"
-const val COMMENT = "COMMENT"
-const val LIKE = "LIKE"
 
 fun PostItem.toPostModel(postStates: PostStates) =
 
@@ -57,9 +47,9 @@ private fun Reaction.toReactionsModel(
     likesCount.add(likesCountMutableState)
     like.add(isLikedMutableState)
     val reactionType = when (this.type) {
-        LIKE -> ReactionType.LIKE
-        COMMENT -> ReactionType.COMMENT
-        SHARE -> ReactionType.SHARE
+        DataConstants.LIKE -> ReactionType.LIKE
+        DataConstants.COMMENT -> ReactionType.COMMENT
+        DataConstants.SHARE -> ReactionType.SHARE
         else -> ReactionType.LIKE
     }
 
@@ -98,10 +88,10 @@ private fun TopComment.toCommentModel(
 
 private fun Content.toContentModel(postStates: PostStates): PostContent =
     when (this.type) {
-        TEXT -> PostContent(ContentType.TEXT, text = this.text)
-        IMAGE -> PostContent(ContentType.IMAGE, images = this.images)
-        PROMO -> PostContent(ContentType.PROMO, promo = this.promo.toPromoModel())
-        SHARED_POST -> PostContent(
+        DataConstants.TEXT -> PostContent(ContentType.TEXT, text = this.text)
+        DataConstants.IMAGE -> PostContent(ContentType.IMAGE, images = this.images)
+        DataConstants.PROMO -> PostContent(ContentType.PROMO, promo = this.promo.toPromoModel())
+        DataConstants.SHARED_POST -> PostContent(
             ContentType.SHARED_POST,
             sharedPost = this.sharedPost.toPostModel(postStates)
         )
