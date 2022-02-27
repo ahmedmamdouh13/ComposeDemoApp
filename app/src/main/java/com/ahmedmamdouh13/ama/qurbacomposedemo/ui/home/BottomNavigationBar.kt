@@ -134,7 +134,6 @@ fun HomeIcon(state: MutableState<BottomNavigationStateType>) {
 }
 
 val displayMetrics = Resources.getSystem().displayMetrics
-val widthRange = (displayMetrics.widthPixels / displayMetrics.density) / 5
 
 @Composable
 fun NavigationIcon(
@@ -143,14 +142,16 @@ fun NavigationIcon(
     stateType: BottomNavigationStateType,
     state: MutableState<BottomNavigationStateType>
 ) {
-    val isActive = state.value == stateType
 
+    val widthRange = (displayMetrics.widthPixels / displayMetrics.density) / 5
+
+    val isActive = state.value == stateType
 
     Box(
         Modifier
             .fillMaxHeight()
-            .width(widthRange.dp)
             .clip(RoundedCornerShape((widthRange / 2).dp))
+            .width(widthRange.dp)
             .clickable {
                 state.value = stateType
             }) {
