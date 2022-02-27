@@ -1,5 +1,6 @@
 package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home
 
+import android.content.res.Resources
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -81,7 +82,8 @@ fun IndicatorIcon(isVisible: Boolean) {
                 .background(
                     shape = RoundedCornerShape(20.dp),
                     brush = Brush.linearGradient(colors = listOf(Indigo, Fuchsia))
-                ).clip(RoundedCornerShape(20.dp))
+                )
+                .clip(RoundedCornerShape(20.dp))
 
         )
 
@@ -131,6 +133,8 @@ fun HomeIcon(state: MutableState<BottomNavigationStateType>) {
     )
 }
 
+val displayMetrics = Resources.getSystem().displayMetrics
+val widthRange = (displayMetrics.widthPixels / displayMetrics.density) / 5
 
 @Composable
 fun NavigationIcon(
@@ -141,24 +145,34 @@ fun NavigationIcon(
 ) {
     val isActive = state.value == stateType
 
-    Box(modifier = Modifier
-        .size(40.dp)
-        .clip(RoundedCornerShape(20.dp))
-        .clickable {
-            state.value = stateType
-        }, contentAlignment = Alignment.Center
-    ) {
 
-        IndicatorIcon(isActive)
-
-        Image(
+    Box(
+        Modifier
+            .fillMaxHeight()
+            .width(widthRange.dp)
+            .clip(RoundedCornerShape((widthRange / 2).dp))
+            .clickable {
+                state.value = stateType
+            }) {
+        Box(
             modifier = Modifier
-                .size(24.dp)
-                .align(Alignment.Center), painter = painterResource(id = drawableRes),
-            contentDescription = "search", contentScale = ContentScale.Inside,
-            colorFilter = if (isActive) ColorFilter.tint(Color.White) else null
-        )
+                .size(40.dp)
+
+                .align(Alignment.Center), contentAlignment = Alignment.Center
+        ) {
+
+            IndicatorIcon(isActive)
+
+            Image(
+                modifier = Modifier
+                    .size(24.dp)
+                    .align(Alignment.Center), painter = painterResource(id = drawableRes),
+                contentDescription = "search", contentScale = ContentScale.Inside,
+                colorFilter = if (isActive) ColorFilter.tint(Color.White) else null
+            )
+        }
     }
+
 }
 
 
