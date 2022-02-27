@@ -23,7 +23,7 @@ fun PostList(viewModel: PostViewModel, homeViewModel: HomeViewModel) {
 
 
     AnimatedVisibility(visible = model.isEmpty()) {
-        PlaceHolder()
+        Placeholder() // posts placeholder
     }
 
     val barHeight = dimensionResource(id = R.dimen.barHeight)
@@ -39,7 +39,7 @@ fun PostList(viewModel: PostViewModel, homeViewModel: HomeViewModel) {
             Box(modifier = Modifier.height(barHeight)) // to slide content under the top bar
         }
 
-        item {
+        item { // Share your thoughts on food part.
             CreatePost(
                 userProfilePic = homeViewModel.userProfilePicture,
                 textState = homeViewModel.createPostState
@@ -48,7 +48,7 @@ fun PostList(viewModel: PostViewModel, homeViewModel: HomeViewModel) {
 
         itemsIndexed(model) { _, item ->
 
-            Divider(
+            Divider( // divider between posts
                 color = PostDividerColorOffWhite50,
                 thickness = dimensionResource(id = R.dimen.dividerThickness)
             )
