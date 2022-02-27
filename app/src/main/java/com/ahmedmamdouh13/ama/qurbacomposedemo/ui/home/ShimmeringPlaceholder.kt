@@ -72,7 +72,7 @@ fun Shimmer() {
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .height(192.dp)
+                .height(dimensionResource(id = R.dimen.contentHeight))
                 .background(color = ShimmerColorGray)
         )
 

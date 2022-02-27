@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 
@@ -58,7 +57,7 @@ fun GridContentImages(images: List<String>) {
 
 }
 
-//calculate height for grid items minding padding
+//calculate height for grid items, minding padding
 fun calculateGridItemsHeight(itemCount: Int, paddingSize: Int): Int {
     return ((defaultImageContentHeight - ((itemCount - 2) * paddingSize)) / (itemCount - 1))
 }

@@ -11,4 +11,5 @@
     <dimen name="sharedPostBorderCorner">7dp</dimen>
     <dimen name="barHeight">56dp</dimen>
     <dimen name="createPostHeight">64dp</dimen>
+    <dimen name="contentHeight">192dp</dimen>
 </resources>

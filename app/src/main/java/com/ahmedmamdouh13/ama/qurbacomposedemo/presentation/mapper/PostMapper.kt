@@ -17,6 +17,8 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.viewmodel.PostStates
 import com.ahmedmamdouh13.ama.qurbacomposedemo.util.Count
 
+//mappers to map from data model to presentation model
+
 fun PostItem.toPostModel(postStates: PostStates) =
 
     PostModel(
