@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ahmedmamdouh13.ama.qurbacomposedemo.data.PostsRepository
-import com.ahmedmamdouh13.ama.qurbacomposedemo.data.Result
-import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.Posts
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.Result
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.response.Posts
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.repo.PostsRepository
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.mapper.toPostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
@@ -37,7 +37,7 @@ class PostViewModel() : ViewModel() {
 
     private fun handleResult(result: Result) {
         when (result) {
-            is Result.Error -> {
+            is Result.Error -> { // show a message to the user
                 Log.d(TAG, result.e.message.toString())
             }
             is Result.Success<*> -> {

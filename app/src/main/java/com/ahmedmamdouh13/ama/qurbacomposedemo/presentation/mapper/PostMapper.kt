@@ -2,7 +2,7 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.mapper
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.*
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.response.*
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.PostModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.CommentModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.content.ContentType

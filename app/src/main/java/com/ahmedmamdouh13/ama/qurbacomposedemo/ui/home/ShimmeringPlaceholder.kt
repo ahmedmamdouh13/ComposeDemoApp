@@ -18,7 +18,7 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ShimmerColorWhitishGray
 
 
 @Composable
-fun ShimmerList() {
+fun PlaceHolder() {
     Column(
         modifier = Modifier
             .wrapContentHeight()

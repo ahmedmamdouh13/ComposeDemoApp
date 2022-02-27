@@ -23,51 +23,52 @@ fun PostList(viewModel: PostViewModel, homeViewModel: HomeViewModel) {
 
 
     AnimatedVisibility(visible = model.isEmpty()) {
-        ShimmerList()
+        PlaceHolder()
     }
 
     val barHeight = dimensionResource(id = R.dimen.barHeight)
 
 
-        LazyColumn(
-            modifier = Modifier
-                .wrapContentHeight()
-                .fillMaxWidth()
-        ) {
+    LazyColumn(
+        modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth()
+    ) {
 
-            item {
-                Box(modifier = Modifier.height(barHeight)) // to slide content under the top bar
-            }
-
-            item {
-
-                    CreatePost(
-                        userProfilePic = homeViewModel.userProfilePicture,
-                        textState = homeViewModel.createPostState
-                    )
-
-                Divider(color = PostDividerColorOffWhite50, thickness = dimensionResource(id = R.dimen.dividerThickness))
-
-            }
-
-            itemsIndexed(model) { _, item ->
-                    Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
-
-                    PostItem(
-                        model = item,
-                        onReactionClicked = { viewModel.onClickReaction(it) },
-                        onLikeComment = { viewModel.onLikeComment(it) },
-                        onMenuButtonClicked = { viewModel.onMenuButtonClick() },
-                        onPromoActionClick = { viewModel.onPromoActionClick(it) }
-                    )
-
-                    Divider(color = PostDividerColorOffWhite50, thickness = dimensionResource(id = R.dimen.dividerThickness))
-            }
-
-            item {
-                Box(modifier = Modifier.height(barHeight)) // to slide content under the top bar
-            }
+        item {
+            Box(modifier = Modifier.height(barHeight)) // to slide content under the top bar
         }
+
+        item {
+            CreatePost(
+                userProfilePic = homeViewModel.userProfilePicture,
+                textState = homeViewModel.createPostState
+            )
+        }
+
+        itemsIndexed(model) { _, item ->
+
+            Divider(
+                color = PostDividerColorOffWhite50,
+                thickness = dimensionResource(id = R.dimen.dividerThickness)
+            )
+
+            Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_12)))
+
+            PostItem(
+                model = item,
+                onReactionClicked = { viewModel.onClickReaction(it) },
+                onLikeComment = { viewModel.onLikeComment(it) },
+                onMenuButtonClicked = { viewModel.onMenuButtonClick() },
+                onPromoActionClick = { viewModel.onPromoActionClick(it) }
+            )
+
+        }
+
+        item {
+            Box(modifier = Modifier.height(barHeight)) // to slide content under the navigation bar
+        }
+    }
 
 
 }

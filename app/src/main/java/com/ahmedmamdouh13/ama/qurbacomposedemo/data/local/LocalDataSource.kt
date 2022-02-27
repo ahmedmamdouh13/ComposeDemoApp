@@ -2,7 +2,7 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.data.local
 
 import android.content.Context
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
-import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.Posts
+import com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.response.Posts
 import com.google.gson.Gson
 
 object LocalDataSource {

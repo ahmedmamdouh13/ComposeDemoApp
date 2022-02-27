@@ -431,7 +431,7 @@
       "timestamp": 1645730335001,
       "commentText": "Very good!",
       "isLiked": false,
-      "isVisible": false
+      "isVisible": true
     },
     "reactions": [
       {

@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation
+package com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

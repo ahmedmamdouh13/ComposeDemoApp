@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.data
+package com.ahmedmamdouh13.ama.qurbacomposedemo.data.local
 
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 

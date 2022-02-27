@@ -1,4 +1,4 @@
-package com.ahmedmamdouh13.ama.qurbacomposedemo.data.model
+package com.ahmedmamdouh13.ama.qurbacomposedemo.data.model.response
 
 
 import com.google.gson.annotations.SerializedName
@@ -15,4 +15,4 @@ data class Content(
     @SerializedName("promo")
     val promo: Promo,
 
-)
+    )
