@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -23,6 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.home.BottomNavigationStateType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.ActionButtonFuchsia
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Fuchsia
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.Indigo
 
 
 @Composable
@@ -73,10 +77,17 @@ fun IndicatorIcon(isVisible: Boolean) {
         enter = EnterTransition.None,
         exit = ExitTransition.None
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.ic_oval),
-            contentDescription = "indicator"
+        Box(
+            modifier = Modifier
+                .size(40.dp)
+                .background(
+                    shape = RoundedCornerShape(20.dp),
+                    brush = Brush.linearGradient(colors = listOf(Indigo, Fuchsia))
+                )
+                .clip(RoundedCornerShape(20.dp))
+
         )
+
     }
 }
 
@@ -135,8 +146,12 @@ fun NavigationIcon(
 ) {
     val isActive = state.value == stateType
 
-    Box(modifier = Modifier.size(40.dp)
-        , contentAlignment = Alignment.Center
+    Box(modifier = Modifier
+        .size(40.dp)
+        .clip(RoundedCornerShape(20.dp))
+        .clickable {
+            state.value = stateType
+        }, contentAlignment = Alignment.Center
     ) {
 
         IndicatorIcon(isActive)
@@ -144,10 +159,7 @@ fun NavigationIcon(
         Image(
             modifier = Modifier
                 .size(24.dp)
-                .align(Alignment.Center)
-                .clickable {
-                    state.value = stateType
-                }, painter = painterResource(id = drawableRes),
+                .align(Alignment.Center), painter = painterResource(id = drawableRes),
             contentDescription = "search", contentScale = ContentScale.Inside,
             colorFilter = if (isActive) ColorFilter.tint(Color.White) else null
         )

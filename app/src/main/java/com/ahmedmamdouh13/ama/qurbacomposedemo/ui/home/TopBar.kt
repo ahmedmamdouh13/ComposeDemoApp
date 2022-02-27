@@ -2,7 +2,6 @@ package com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ahmedmamdouh13.ama.qurbacomposedemo.R
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.PostPadding
-import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.theme.BorderColorOffWhite
 
 
 @Composable
@@ -28,12 +26,13 @@ fun TopBar() {
         modifier = Modifier
             .fillMaxWidth()
             .height(56.dp)
-            .shadow(1.dp,RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
+            .shadow(1.dp, RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
             .offset(y = (-1).dp)
             .background(
                 color = Color.White,
                 shape = RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp)
-            ).clip( RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
+            )
+            .clip(RoundedCornerShape(bottomStart = 4.dp, bottomEnd = 4.dp))
 
 
     ) {
@@ -58,9 +57,9 @@ fun TopBar() {
                 .wrapContentSize()
         ) {
             SearchIcon()
-            Spacer(modifier = Modifier.padding(start = 28.dp))
+            Spacer(modifier = Modifier.padding(start = 8.dp))
             NotificationIcon()
-            Spacer(modifier = Modifier.padding(start = 28.dp))
+            Spacer(modifier = Modifier.padding(start = 8.dp))
             CartIcon()
         }
 
@@ -69,31 +68,34 @@ fun TopBar() {
 
 @Composable
 fun SearchIcon() {
-    Image(
-        modifier = Modifier
-            .clickable { }, painter = painterResource(id = R.drawable.ic_search),
-        contentDescription = "search", contentScale = ContentScale.Inside
-    )
+    ClickableIcon(R.drawable.ic_search)
 }
 
 @Composable
 fun NotificationIcon() {
-    Image(
-        modifier = Modifier
-            .clickable { },
-        painter = painterResource(id = R.drawable.ic_notification),
-        contentDescription = "notification", contentScale = ContentScale.Inside
-    )
+    ClickableIcon(R.drawable.ic_notification)
 }
 
 @Composable
 fun CartIcon() {
-    Image(
-        modifier = Modifier
-            .clickable { }, painter = painterResource(id = R.drawable.ic_cart),
-        contentDescription = "cart", contentScale = ContentScale.Fit
-    )
+    ClickableIcon(R.drawable.ic_cart)
 }
+
+
+@Composable
+fun ClickableIcon(iconRes: Int, onClick: () -> Unit = {}) {
+    Box(modifier = Modifier.size(30.dp)
+        .clip(RoundedCornerShape(15.dp))
+        .clickable { onClick() }) {
+        Image(
+            modifier = Modifier
+                .align(Alignment.Center)
+            , painter = painterResource(id = iconRes),
+            contentDescription = "search", contentScale = ContentScale.Inside
+        )
+    }
+}
+
 
 @Composable
 fun LogoIcon() {

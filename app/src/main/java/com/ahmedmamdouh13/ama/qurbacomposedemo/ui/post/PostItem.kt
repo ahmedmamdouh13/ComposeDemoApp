@@ -20,6 +20,7 @@ import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.comment.C
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.promo.PromoModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionModel
 import com.ahmedmamdouh13.ama.qurbacomposedemo.presentation.model.post.reaction.ReactionType
+import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.home.ClickableIcon
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.ContentText
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.GridContentImages
 import com.ahmedmamdouh13.ama.qurbacomposedemo.ui.post.content.Promo
@@ -139,15 +140,19 @@ fun PostTopComment(model: PostModel, onLikeComment: (CommentModel) -> Unit) {
 
 @Composable
 fun Menu(onMenuButtonClicked: () -> Unit) {
-    Image(
-        painterResource(id = menu),
-        contentDescription = "menu",
-        modifier = Modifier
-            .size(20.dp)
-            .clickable {
-                onMenuButtonClicked()
-            }
-    )
+    ClickableIcon(iconRes = menu){
+        onMenuButtonClicked()
+    }
+
+//    Image(
+//        painterResource(id = menu),
+//        contentDescription = "menu",
+//        modifier = Modifier
+//            .size(20.dp)
+//            .clickable {
+//                onMenuButtonClicked()
+//            }
+//    )
 }
 
 @Composable
